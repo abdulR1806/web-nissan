@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artikel - LPK Nissan Fortuna</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e31d1a',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 50;
+}
+.dropdown-container:hover .dropdown {
+display: block;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -2px;
+left: 0;
+background-color: #e31d1a;
+transition: width 0.3s;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.whatsapp-button {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 100;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #e31d1a;
+}
+.article-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.pagination-item {
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.3s;
+}
+.pagination-item.active {
+background-color: #e31d1a;
+color: white;
+}
+.pagination-item:hover:not(.active) {
+background-color: #f3f4f6;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="flex items-center">
+<span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+<div class="dropdown-container relative">
+<button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
+Layanan
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
+<a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-steering-2-line"></i>
+</div>
+Kursus Mengemudi
+</a>
+<a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-computer-line"></i>
+</div>
+Kursus Komputer & Akuntansi
+</a>
+<a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line"></i>
+</div>
+Kursus Mekanik Otomotif
+</a>
+</div>
+</div>
+<a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="nav-link text-primary hover:text-primary font-medium">Artikel</a>
+<a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/33100be1-dc01-4068-aab2-476a5ce863f3" data-readdy="true" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
+<a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Hubungi Kami</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</div>
+</header>
+<!-- Mobile Menu (Hidden by default) -->
+<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+<div class="bg-white h-full w-64 shadow-lg p-5">
+<div class="flex justify-between items-center mb-6">
+<span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+<button class="w-8 h-8 flex items-center justify-center">
+<i class="ri-close-line text-2xl"></i>
+</button>
+</div>
+<nav class="flex flex-col space-y-4">
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
+<div class="py-2">
+<button class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
+Layanan
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="pl-4 mt-2 hidden">
+<a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-steering-2-line"></i>
+</div>
+Kursus Mengemudi
+</a>
+<a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-computer-line"></i>
+</div>
+Kursus Komputer & Akuntansi
+</a>
+<a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line"></i>
+</div>
+Kursus Mekanik Otomotif
+</a>
+</div>
+</div>
+<a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="text-primary hover:text-primary font-medium py-2">Artikel</a>
+<a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/33100be1-dc01-4068-aab2-476a5ce863f3" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2">Lokasi</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Hubungi Kami</a>
+</nav>
+</div>
+</div>
+<!-- Page Header -->
+<section class="pt-24 pb-12 bg-gray-50">
+<div class="container mx-auto px-4">
+<h1 class="text-4xl font-bold text-center mb-4">Artikel & Berita</h1>
+<p class="text-gray-600 text-center max-w-2xl mx-auto">Temukan informasi terbaru seputar kursus dan tips berguna untuk meningkatkan keterampilan Anda di berbagai bidang.</p>
+</div>
+</section>
+<!-- Search & Filter Section -->
+<section class="py-8 bg-white shadow-sm sticky top-16 z-30">
+<div class="container mx-auto px-4">
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-1">
+<input type="text" placeholder="Cari artikel..." class="w-full px-4 py-3 pl-12 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm">
+<div class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<div class="relative w-full md:w-64">
+<select id="category-filter" class="w-full appearance-none px-4 py-3 pr-10 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm cursor-pointer">
+<option value="">Semua Kategori</option>
+<option value="mengemudi">Kursus Mengemudi</option>
+<option value="komputer">Komputer & Akuntansi</option>
+<option value="mekanik">Mekanik Otomotif</option>
+</select>
+<div class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400 pointer-events-none">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Articles Grid -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Article 1 -->
+<div class="article-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520driving%2520instructor%2520teaching%2520student%2520in%2520car%252C%2520Indonesian%2520setting%252C%2520modern%2520car%2520interior%252C%2520focused%2520learning%2520environment%252C%2520bright%2520natural%2520lighting%252C%2520professional%2520photography&width=600&height=400&seq=11&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full">Kursus Mengemudi</span>
+<span class="text-gray-500 text-sm ml-auto">29 Apr 2025</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Tips Mengemudi Aman untuk Pemula di Jalan Raya</h3>
+<p class="text-gray-600 mb-4 line-clamp-3">Bagi pemula, mengemudi di jalan raya bisa menjadi pengalaman yang mendebarkan. Artikel ini membahas berbagai tips penting untuk memastikan keselamatan Anda dan pengguna jalan lainnya saat baru belajar mengemudi.</p>
+<a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Baca Selengkapnya</a>
+</div>
+</div>
+<!-- Article 2 -->
+<div class="article-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520computer%2520lab%2520with%2520Indonesian%2520students%2520learning%2520accounting%2520software%252C%2520professional%2520setting%252C%2520bright%2520classroom%252C%2520multiple%2520computer%2520screens%2520showing%2520accounting%2520data%252C%2520professional%2520photography&width=600&height=400&seq=12&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full">Komputer & Akuntansi</span>
+<span class="text-gray-500 text-sm ml-auto">25 Apr 2025</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Menguasai Software Akuntansi MYOB untuk Pemula</h3>
+<p class="text-gray-600 mb-4 line-clamp-3">MYOB merupakan software akuntansi yang banyak digunakan di perusahaan. Artikel ini membahas langkah-langkah dasar untuk menguasai MYOB, mulai dari setup awal hingga pembuatan laporan keuangan.</p>
+<a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Baca Selengkapnya</a>
+</div>
+</div>
+<!-- Article 3 -->
+<div class="article-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=automotive%2520mechanic%2520workshop%2520in%2520Indonesia%252C%2520instructor%2520demonstrating%2520engine%2520repair%2520to%2520students%252C%2520hands-on%2520learning%252C%2520professional%2520tools%2520visible%252C%2520bright%2520well-equipped%2520garage%252C%2520professional%2520photography&width=600&height=400&seq=13&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full">Mekanik Otomotif</span>
+<span class="text-gray-500 text-sm ml-auto">20 Apr 2025</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Cara Mendiagnosis Masalah Mesin Mobil dengan Tepat</h3>
+<p class="text-gray-600 mb-4 line-clamp-3">Mendiagnosis masalah mesin mobil dengan tepat adalah keterampilan penting bagi mekanik. Artikel ini membahas berbagai metode dan alat untuk mendeteksi masalah mesin secara efektif dan efisien.</p>
+<a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Baca Selengkapnya</a>
+</div>
+</div>
+<!-- Article 4 -->
+<div class="article-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=driving%2520test%2520in%2520Indonesia%252C%2520student%2520taking%2520practical%2520driving%2520exam%252C%2520examiner%2520with%2520clipboard%252C%2520city%2520traffic%2520setting%252C%2520nervous%2520student%2520driver%252C%2520professional%2520photography&width=600&height=400&seq=14&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full">Kursus Mengemudi</span>
+<span class="text-gray-500 text-sm ml-auto">18 Apr 2025</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Persiapan Menghadapi Ujian Praktik SIM dengan Percaya Diri</h3>
+<p class="text-gray-600 mb-4 line-clamp-3">Ujian praktik SIM bisa menjadi momen yang menegangkan. Artikel ini memberikan tips dan strategi untuk mempersiapkan diri menghadapi ujian praktik SIM agar bisa lulus dengan hasil memuaskan.</p>
+<a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Baca Selengkapnya</a>
+</div>
+</div>
+<!-- Article 5 -->
+<div class="article-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=excel%2520spreadsheet%2520with%2520financial%2520data%252C%2520close-up%2520of%2520Indonesian%2520person%2520working%2520on%2520computer%252C%2520accounting%2520charts%2520and%2520graphs%252C%2520professional%2520office%2520setting%252C%2520bright%2520natural%2520lighting%252C%2520professional%2520photography&width=600&height=400&seq=15&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full">Komputer & Akuntansi</span>
+<span class="text-gray-500 text-sm ml-auto">15 Apr 2025</span>
+</div>
+<h3 class="text-xl font-bold mb-3">10 Fungsi Excel yang Wajib Dikuasai untuk Pekerjaan Akuntansi</h3>
+<p class="text-gray-600 mb-4 line-clamp-3">Microsoft Excel adalah alat yang sangat penting dalam pekerjaan akuntansi. Artikel ini membahas 10 fungsi Excel yang paling sering digunakan dan wajib dikuasai oleh profesional akuntansi.</p>
+<a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Baca Selengkapnya</a>
+</div>
+</div>
+<!-- Article 6 -->
+<div class="article-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=car%2520maintenance%2520check%252C%2520Indonesian%2520mechanic%2520checking%2520fluid%2520levels%252C%2520open%2520car%2520hood%252C%2520modern%2520garage%2520setting%252C%2520professional%2520tools%2520visible%252C%2520bright%2520lighting%252C%2520professional%2520photography&width=600&height=400&seq=16&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full">Mekanik Otomotif</span>
+<span class="text-gray-500 text-sm ml-auto">10 Apr 2025</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Panduan Lengkap Perawatan Berkala Mobil untuk Pemula</h3>
+<p class="text-gray-600 mb-4 line-clamp-3">Perawatan berkala mobil sangat penting untuk menjaga performa dan umur kendaraan. Artikel ini membahas jadwal dan jenis perawatan yang perlu dilakukan secara rutin untuk mobil Anda.</p>
+<a href="#" class="inline-block bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Baca Selengkapnya</a>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default) -->
+<div id="empty-state" class="hidden py-16 text-center">
+<div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center bg-red-100 rounded-full text-primary">
+<i class="ri-file-search-line text-4xl"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Tidak Ada Artikel Ditemukan</h3>
+<p class="text-gray-600 mb-6 max-w-md mx-auto">Maaf, tidak ada artikel yang sesuai dengan kriteria pencarian Anda. Silakan coba dengan kata kunci atau kategori lain.</p>
+<button id="reset-filter" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Reset Filter</button>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center mt-12">
+<div class="flex items-center space-x-2">
+<div class="pagination-item">
+<i class="ri-arrow-left-s-line"></i>
+</div>
+<div class="pagination-item active">1</div>
+<div class="pagination-item">2</div>
+<div class="pagination-item">3</div>
+<div class="pagination-item">
+<i class="ri-arrow-right-s-line"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-8 mb-12">
+<!-- About -->
+<div>
+<a href="#" class="inline-block mb-6">
+<span class="text-white font-['Pacifico'] text-2xl">logo</span>
+</a>
+<p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga terjangkau.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+<li><a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="text-gray-400 hover:text-white transition duration-300">Artikel</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hubungi Kami</a></li>
+</ul>
+</div>
+<!-- Layanan -->
+<div>
+<h3 class="text-xl font-bold mb-6">Layanan</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mengemudi</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Komputer & Akuntansi</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mekanik Otomotif</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Jadwal Kursus</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biaya Kursus</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div>
+<h3 class="text-xl font-bold mb-6">Kontak</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">Jl. Raya Utama No. 123, Kota Jakarta, Indonesia 12345</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">+62 21 1234 5678</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">info@nissanfortuna.co.id</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta Dilindungi.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan Privasi</a>
+<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat & Ketentuan</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+<i class="ri-whatsapp-line text-white text-2xl"></i>
+</a>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuButton = document.querySelector('button.md\\:hidden');
+const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+const closeButton = document.querySelector('.ri-close-line').parentElement;
+if (menuButton && mobileMenu && closeButton) {
+menuButton.addEventListener('click', function() {
+mobileMenu.classList.remove('hidden');
+});
+closeButton.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+});
+}
+// Mobile submenu toggle
+const mobileSubmenuButton = document.querySelector('.py-2 button');
+const mobileSubmenu = document.querySelector('.py-2 .hidden');
+if (mobileSubmenuButton && mobileSubmenu) {
+mobileSubmenuButton.addEventListener('click', function() {
+mobileSubmenu.classList.toggle('hidden');
+});
+}
+// Category filter functionality
+const categoryFilter = document.getElementById('category-filter');
+const articleCards = document.querySelectorAll('.article-card');
+const emptyState = document.getElementById('empty-state');
+const resetFilterBtn = document.getElementById('reset-filter');
+if (categoryFilter && articleCards.length && emptyState && resetFilterBtn) {
+categoryFilter.addEventListener('change', function() {
+const selectedCategory = this.value.toLowerCase();
+let visibleCount = 0;
+articleCards.forEach(card => {
+const cardCategory = card.querySelector('.bg-red-100').textContent.toLowerCase();
+if (selectedCategory === '' || cardCategory.includes(selectedCategory)) {
+card.style.display = 'block';
+visibleCount++;
+} else {
+card.style.display = 'none';
+}
+});
+if (visibleCount === 0) {
+emptyState.classList.remove('hidden');
+} else {
+emptyState.classList.add('hidden');
+}
+});
+resetFilterBtn.addEventListener('click', function() {
+categoryFilter.value = '';
+emptyState.classList.add('hidden');
+articleCards.forEach(card => {
+card.style.display = 'block';
+});
+});
+}
+// Pagination functionality
+const paginationItems = document.querySelectorAll('.pagination-item');
+if (paginationItems.length) {
+paginationItems.forEach(item => {
+if (!item.classList.contains('active')) {
+item.addEventListener('click', function() {
+document.querySelector('.pagination-item.active').classList.remove('active');
+this.classList.add('active');
+// Scroll to top of articles section
+const articlesSection = document.querySelector('.py-12.bg-white');
+if (articlesSection) {
+window.scrollTo({
+top: articlesSection.offsetTop - 150,
+behavior: 'smooth'
+});
+}
+});
+}
+});
+}
+});
+</script>
+</body>
+</html>

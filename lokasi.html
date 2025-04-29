@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokasi - LPK Nissan Fortuna</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e31d1a',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+}
+.dropdown-container:hover .dropdown {
+    display: block;
+}
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #e31d1a;
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #e31d1a;
+}
+.location-card {
+    transition: all 0.3s ease;
+}
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.map-container {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.05);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.map-container:hover::before {
+    opacity: 1;
+}
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+.custom-checkbox:checked {
+    background-color: #e31d1a;
+    border-color: #e31d1a;
+}
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="#" class="flex items-center">
+            <span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-6">
+            <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+            <div class="dropdown-container relative">
+                <button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
+                    Layanan
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-steering-2-line"></i>
+                        </div>
+                        Kursus Mengemudi
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-computer-line"></i>
+                        </div>
+                        Kursus Komputer & Akuntansi
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-tools-line"></i>
+                        </div>
+                        Kursus Mekanik Otomotif
+                    </a>
+                </div>
+            </div>
+            <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="nav-link text-gray-800 hover:text-primary font-medium">Artikel</a>
+            <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/b1f16abf-795a-433b-ba99-4dc5972d2856" data-readdy="true" class="nav-link text-primary hover:text-primary font-medium">Lokasi</a>
+            <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Hubungi Kami</a>
+        </nav>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center">
+            <i class="ri-menu-line text-2xl"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Menu (Hidden by default) -->
+<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+    <div class="bg-white h-full w-64 shadow-lg p-5">
+        <div class="flex justify-between items-center mb-6">
+            <span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+            <button class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4">
+            <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
+            <div class="py-2">
+                <button class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
+                    Layanan
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="pl-4 mt-2 hidden">
+                    <a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-steering-2-line"></i>
+                        </div>
+                        Kursus Mengemudi
+                    </a>
+                    <a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-computer-line"></i>
+                        </div>
+                        Kursus Komputer & Akuntansi
+                    </a>
+                    <a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-tools-line"></i>
+                        </div>
+                        Kursus Mekanik Otomotif
+                    </a>
+                </div>
+            </div>
+            <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="text-gray-800 hover:text-primary font-medium py-2">Artikel</a>
+            <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/b1f16abf-795a-433b-ba99-4dc5972d2856" data-readdy="true" class="text-primary hover:text-primary font-medium py-2">Lokasi</a>
+            <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Hubungi Kami</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Page Header -->
+<section class="pt-24 pb-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-4">Lokasi Cabang LPK Nissan Fortuna</h1>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto">Temukan lokasi cabang terdekat kami di Kudus, Jepara, dan Pati untuk memulai perjalanan belajar Anda bersama LPK Nissan Fortuna.</p>
+    </div>
+</section>
+
+<!-- Branch Locations Grid -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Cabang Kudus -->
+            <div class="location-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520driving%2520school%2520building%2520in%2520Indonesia%252C%2520clean%2520architecture%252C%2520red%2520accent%2520colors%252C%2520glass%2520facade%252C%2520parking%2520area%2520with%2520training%2520cars%252C%2520sunny%2520day%252C%2520professional%2520photography%252C%2520no%2520people&width=600&height=400&seq=101&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Cabang Kudus</h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-600">Jl. Kudus No. 123, Kota Kudus, Jawa Tengah</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-600">(0291) 123456</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-600">kudus@lpknissanfortuna.com</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <div class="text-gray-600">
+                                <p>Senin - Jumat: 08.00 - 17.00</p>
+                                <p>Sabtu: 08.00 - 15.00</p>
+                                <p>Minggu: Tutup</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-2">Layanan:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Kursus Mengemudi Manual</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Kursus Mengemudi Matic</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Perpanjangan SIM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-container rounded-lg overflow-hidden h-48 mb-6">
+                        <div style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');" class="w-full h-full bg-cover bg-center"></div>
+                    </div>
+                    
+                    <div class="flex space-x-3">
+                        <a href="https://maps.google.com" target="_blank" class="flex-1 bg-primary text-white text-center py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">
+                            <i class="ri-route-line mr-2"></i>Petunjuk Arah
+                        </a>
+                        <a href="tel:0291123456" class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-button hover:bg-gray-200 transition duration-300">
+                            <i class="ri-phone-line text-primary"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cabang Jepara -->
+            <div class="location-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520driving%2520school%2520building%2520in%2520Indonesia%252C%2520clean%2520architecture%252C%2520red%2520accent%2520colors%252C%2520training%2520cars%2520parked%2520outside%252C%2520small%2520garden%2520area%252C%2520sunny%2520day%252C%2520professional%2520photography%252C%2520no%2520people&width=600&height=400&seq=102&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Cabang Jepara</h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-600">Jl. Jepara No. 456, Kota Jepara, Jawa Tengah</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-600">(0291) 234567</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-600">jepara@lpknissanfortuna.com</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <div class="text-gray-600">
+                                <p>Senin - Jumat: 08.00 - 17.00</p>
+                                <p>Sabtu: 08.00 - 15.00</p>
+                                <p>Minggu: Tutup</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-2">Layanan:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Kursus Mengemudi Manual</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Kursus Mengemudi Matic</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-container rounded-lg overflow-hidden h-48 mb-6">
+                        <div style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');" class="w-full h-full bg-cover bg-center"></div>
+                    </div>
+                    
+                    <div class="flex space-x-3">
+                        <a href="https://maps.google.com" target="_blank" class="flex-1 bg-primary text-white text-center py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">
+                            <i class="ri-route-line mr-2"></i>Petunjuk Arah
+                        </a>
+                        <a href="tel:0291234567" class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-button hover:bg-gray-200 transition duration-300">
+                            <i class="ri-phone-line text-primary"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cabang Pati -->
+            <div class="location-card bg-white rounded-lg shadow-md overflow-hidden">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520driving%2520school%2520building%2520in%2520Indonesia%252C%2520clean%2520architecture%252C%2520red%2520accent%2520colors%252C%2520wide%2520parking%2520area%2520with%2520several%2520training%2520cars%252C%2520professional%2520signage%252C%2520sunny%2520day%252C%2520professional%2520photography%252C%2520no%2520people&width=600&height=400&seq=103&orientation=landscape');" class="h-56 bg-cover bg-center"></div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Cabang Pati</h3>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-600">Jl. Pati No. 789, Kota Pati, Jawa Tengah</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-600">(0291) 345678</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-600">pati@lpknissanfortuna.com</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <div class="text-gray-600">
+                                <p>Senin - Jumat: 08.00 - 17.00</p>
+                                <p>Sabtu: 08.00 - 15.00</p>
+                                <p>Minggu: Tutup</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-gray-900 mb-2">Layanan:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Kursus Mengemudi Manual</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Kursus Mengemudi Matic</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-5 h-5 flex items-center justify-center mr-2 text-primary">
+                                    <i class="ri-checkbox-circle-line"></i>
+                                </div>
+                                <span class="text-gray-600">Pelatihan Pengemudi Profesional</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-container rounded-lg overflow-hidden h-48 mb-6">
+                        <div style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');" class="w-full h-full bg-cover bg-center"></div>
+                    </div>
+                    
+                    <div class="flex space-x-3">
+                        <a href="https://maps.google.com" target="_blank" class="flex-1 bg-primary text-white text-center py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">
+                            <i class="ri-route-line mr-2"></i>Petunjuk Arah
+                        </a>
+                        <a href="tel:0291345678" class="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-button hover:bg-gray-200 transition duration-300">
+                            <i class="ri-phone-line text-primary"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600">Ada pertanyaan tentang lokasi atau layanan kami? Silakan isi formulir di bawah ini dan tim kami akan segera menghubungi Anda.</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <form id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm" placeholder="Masukkan nama lengkap Anda" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm" placeholder="Masukkan alamat email Anda" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm" placeholder="Masukkan nomor telepon Anda" required>
+                        </div>
+                        
+                        <div>
+                            <label for="branch" class="block text-gray-700 font-medium mb-2">Pilih Cabang</label>
+                            <div class="relative">
+                                <select id="branch" name="branch" class="w-full appearance-none px-4 py-3 pr-10 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm cursor-pointer" required>
+                                    <option value="">Pilih cabang</option>
+                                    <option value="kudus">Cabang Kudus</option>
+                                    <option value="jepara">Cabang Jepara</option>
+                                    <option value="pati">Cabang Pati</option>
+                                </select>
+                                <div class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400 pointer-events-none">
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-200 rounded focus:border-primary bg-gray-50 text-sm" placeholder="Tulis pesan atau pertanyaan Anda di sini" required></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="custom-checkbox" required>
+                            <span class="ml-2 text-gray-600 text-sm">Saya setuju bahwa data yang saya berikan akan digunakan untuk menghubungi saya kembali terkait pertanyaan saya.</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <!-- About -->
+            <div>
+                <a href="#" class="inline-block mb-6">
+                    <span class="text-white font-['Pacifico'] text-2xl">logo</span>
+                </a>
+                <p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga terjangkau.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                        <i class="ri-youtube-line"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+                    <li><a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="text-gray-400 hover:text-white transition duration-300">Artikel</a></li>
+                    <li><a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/b1f16abf-795a-433b-ba99-4dc5972d2856" data-readdy="true" class="text-gray-400 hover:text-white transition duration-300">Lokasi</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            
+            <!-- Layanan -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Layanan</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mengemudi</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Komputer & Akuntansi</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mekanik Otomotif</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Jadwal Kursus</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biaya Kursus</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Kontak</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <span class="text-gray-400">Kantor Pusat: Jl. Raya Utama No. 123, Kudus, Jawa Tengah</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <span class="text-gray-400">(0291) 123456</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <span class="text-gray-400">info@lpknissanfortuna.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta Dilindungi.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat & Ketentuan</a>
+                    <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/b1f16abf-795a-433b-ba99-4dc5972d2856" data-readdy="true" class="text-gray-400 text-sm hover:text-white transition duration-300">Kembali ke Halaman Utama</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+    <i class="ri-whatsapp-line text-white text-2xl"></i>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuButton = document.querySelector('button.md\\:hidden');
+    const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+    const closeButton = document.querySelector('.ri-close-line').parentElement;
+    
+    if (menuButton && mobileMenu && closeButton) {
+        menuButton.addEventListener('click', function() {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeButton.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+        });
+    }
+    
+    // Mobile submenu toggle
+    const mobileSubmenuButton = document.querySelector('.py-2 button');
+    const mobileSubmenu = document.querySelector('.py-2 .hidden');
+    
+    if (mobileSubmenuButton && mobileSubmenu) {
+        mobileSubmenuButton.addEventListener('click', function() {
+            mobileSubmenu.classList.toggle('hidden');
+        });
+    }
+    
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const branch = document.getElementById('branch').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !phone || !branch || !message) {
+                alert('Mohon lengkapi semua field yang diperlukan.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert('Terima kasih! Pesan Anda telah terkirim. Tim kami akan segera menghubungi Anda.');
+            contactForm.reset();
+        });
+    }
+    
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            
+            if (targetId !== '#') {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

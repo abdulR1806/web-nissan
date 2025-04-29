@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kursus Komputer & Akuntansi - LPK Nissan Fortuna</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e31d1a',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 50;
+}
+.dropdown-container:hover .dropdown {
+    display: block;
+}
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #e31d1a;
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #e31d1a;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #e31d1a;
+    border-radius: 50%;
+    cursor: pointer;
+}
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 5px;
+    outline: none;
+}
+.custom-checkbox {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+    border-color: #e31d1a;
+}
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: #e31d1a;
+    border-color: #e31d1a;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+.custom-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.custom-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+.custom-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e5e7eb;
+    transition: .4s;
+    border-radius: 24px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #e31d1a;
+}
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+.tab-active {
+    background-color: #e31d1a;
+    color: white;
+}
+.testimonial-card {
+    transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="#" class="flex items-center">
+            <span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-6">
+            <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+            <div class="dropdown-container relative">
+                <button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
+                    Layanan
+                    <div class="w-5 h-5 flex items-center justify-center ml-1">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-steering-2-line"></i>
+                        </div>
+                        Kursus Mengemudi
+                    </a>
+                    <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="flex items-center px-4 py-2 hover:bg-red-100 text-primary font-medium">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-computer-line"></i>
+                        </div>
+                        Kursus Komputer & Akuntansi
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-tools-line"></i>
+                        </div>
+                        Kursus Mekanik Otomotif
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Artikel</a>
+            <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
+            <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Hubungi Kami</a>
+        </nav>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center">
+            <i class="ri-menu-line text-2xl"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Menu (Hidden by default) -->
+<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+    <div class="bg-white h-full w-64 shadow-lg p-5">
+        <div class="flex justify-between items-center mb-6">
+            <span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+            <button class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4">
+            <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
+            <div class="py-2">
+                <button class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
+                    Layanan
+                    <div class="w-5 h-5 flex items-center justify-center">
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                </button>
+                <div class="pl-4 mt-2 hidden">
+                    <a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-steering-2-line"></i>
+                        </div>
+                        Kursus Mengemudi
+                    </a>
+                    <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="flex items-center py-2 text-primary font-medium">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-computer-line"></i>
+                        </div>
+                        Kursus Komputer & Akuntansi
+                    </a>
+                    <a href="#" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                        <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                            <i class="ri-tools-line"></i>
+                        </div>
+                        Kursus Mekanik Otomotif
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Artikel</a>
+            <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Lokasi</a>
+            <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Hubungi Kami</a>
+        </nav>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="pt-20 w-full relative">
+    <div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520computer%2520lab%2520with%2520students%2520learning%2520accounting%2520software%252C%2520professional%2520environment%252C%2520clean%2520workspace%252C%2520bright%2520lighting%252C%2520indonesian%2520students%252C%2520professional%2520education%2520setting%252C%2520high%2520quality%2520photo%252C%2520gradient%2520light%2520background%2520on%2520left%2520side%2520for%2520text%2520placement&width=1920&height=800&seq=5&orientation=landscape'); background-position: center; background-size: cover;" class="w-full h-[600px] relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl font-bold text-gray-900 mb-4">Kuasai Komputer & Akuntansi untuk Karier Cemerlang</h1>
+                <p class="text-xl text-gray-700 mb-8">Program KOMPAK (Komputer & Akuntansi) dari LPK Nissan Fortuna memberikan keterampilan praktis yang dibutuhkan dunia kerja modern. Tingkatkan prospek karir Anda sekarang!</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#daftar" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Daftar Sekarang</a>
+                    <a href="https://wa.me/6281234567890" class="bg-green-500 text-white px-6 py-3 rounded-button font-medium hover:bg-green-600 transition duration-300 flex items-center whitespace-nowrap">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-whatsapp-fill"></i>
+                        </div>
+                        Minta Info Detail via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pilihan Program -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Pilihan Program KOMPAK</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Pilih program yang sesuai dengan kebutuhan dan tujuan karir Anda. Kami menawarkan dua paket utama yang dapat disesuaikan dengan jadwal Anda.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Paket Komputer -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520computer%2520lab%2520with%2520students%2520learning%2520MS%2520Office%252C%2520professional%2520environment%252C%2520indonesian%2520students%252C%2520clean%2520workspace%252C%2520bright%2520lighting%252C%2520computer%2520screens%2520showing%2520MS%2520Office%2520applications%252C%2520high%2520quality%2520photo&width=600&height=300&seq=6&orientation=landscape');" class="h-64 bg-center bg-cover"></div>
+                <div class="p-8">
+                    <div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mb-6 text-primary">
+                        <i class="ri-computer-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Paket Komputer</h3>
+                    <p class="text-gray-600 mb-6">Kuasai aplikasi perkantoran modern dan keterampilan komputer yang dibutuhkan di dunia kerja profesional.</p>
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3">Yang Akan Anda Pelajari:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Microsoft Word (dokumen, surat, laporan)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Microsoft Excel (spreadsheet, formula, analisis data)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Microsoft PowerPoint (presentasi profesional)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Dasar-dasar internet dan email profesional</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Bahasa Inggris dasar untuk perkantoran</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-gray-100">
+                        <div>
+                            <p class="text-gray-500 text-sm">Durasi Program</p>
+                            <p class="font-semibold">3 bulan (36 pertemuan)</p>
+                        </div>
+                        <a href="#daftar" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 text-center whitespace-nowrap">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paket Akuntansi -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520accounting%2520class%2520with%2520indonesian%2520students%2520learning%2520accounting%2520software%252C%2520financial%2520reports%2520on%2520screens%252C%2520clean%2520modern%2520classroom%252C%2520bright%2520lighting%252C%2520professional%2520education%2520setting%252C%2520high%2520quality%2520photo&width=600&height=300&seq=7&orientation=landscape');" class="h-64 bg-center bg-cover"></div>
+                <div class="p-8">
+                    <div class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mb-6 text-primary">
+                        <i class="ri-calculator-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Paket Akuntansi</h3>
+                    <p class="text-gray-600 mb-6">Pelajari prinsip dan praktik akuntansi modern serta software akuntansi yang digunakan di perusahaan terkemuka.</p>
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3">Yang Akan Anda Pelajari:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Prinsip dasar akuntansi dan pembukuan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Siklus akuntansi lengkap</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Software Akuntansi (MYOB, Accurate)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Pajak dasar dan laporan keuangan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-600">Excel untuk akuntansi dan keuangan</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-gray-100">
+                        <div>
+                            <p class="text-gray-500 text-sm">Durasi Program</p>
+                            <p class="font-semibold">4 bulan (48 pertemuan)</p>
+                        </div>
+                        <a href="#daftar" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 text-center whitespace-nowrap">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kurikulum Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Kurikulum Komprehensif</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Kurikulum kami dirancang bersama praktisi industri untuk memastikan keterampilan yang Anda pelajari relevan dengan kebutuhan dunia kerja.</p>
+        </div>
+        
+        <div class="mb-12">
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex bg-gray-100 p-1 rounded-full">
+                    <button id="tab-komputer" class="px-6 py-2 rounded-full tab-active whitespace-nowrap">Kurikulum Komputer</button>
+                    <button id="tab-akuntansi" class="px-6 py-2 rounded-full text-gray-700 whitespace-nowrap">Kurikulum Akuntansi</button>
+                </div>
+            </div>
+            
+            <!-- Kurikulum Komputer -->
+            <div id="content-komputer" class="bg-white rounded-lg shadow-md p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-file-word-line"></i>
+                            </div>
+                            Microsoft Word
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Pemformatan dokumen profesional</li>
+                            <li class="text-gray-600">Template surat dan laporan bisnis</li>
+                            <li class="text-gray-600">Mail merge dan dokumen massal</li>
+                            <li class="text-gray-600">Kolaborasi dan review dokumen</li>
+                        </ul>
+                        
+                        <h3 class="text-xl font-bold mb-4 mt-8 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-file-excel-line"></i>
+                            </div>
+                            Microsoft Excel
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Formula dan fungsi dasar hingga lanjutan</li>
+                            <li class="text-gray-600">Analisis data dan pivot table</li>
+                            <li class="text-gray-600">Visualisasi data dengan grafik</li>
+                            <li class="text-gray-600">Makro dan otomatisasi dasar</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-file-ppt-line"></i>
+                            </div>
+                            Microsoft PowerPoint
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Desain slide profesional</li>
+                            <li class="text-gray-600">Animasi dan transisi efektif</li>
+                            <li class="text-gray-600">Teknik presentasi yang menarik</li>
+                            <li class="text-gray-600">Infografis dan visualisasi data</li>
+                        </ul>
+                        
+                        <h3 class="text-xl font-bold mb-4 mt-8 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-global-line"></i>
+                            </div>
+                            Internet & Email Profesional
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Penggunaan email profesional</li>
+                            <li class="text-gray-600">Pencarian informasi efektif</li>
+                            <li class="text-gray-600">Cloud storage dan kolaborasi online</li>
+                            <li class="text-gray-600">Keamanan data dasar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kurikulum Akuntansi (Hidden by default) -->
+            <div id="content-akuntansi" class="hidden bg-white rounded-lg shadow-md p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-book-open-line"></i>
+                            </div>
+                            Dasar-Dasar Akuntansi
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Konsep dasar akuntansi</li>
+                            <li class="text-gray-600">Persamaan akuntansi</li>
+                            <li class="text-gray-600">Jurnal, buku besar, dan neraca saldo</li>
+                            <li class="text-gray-600">Laporan keuangan dasar</li>
+                        </ul>
+                        
+                        <h3 class="text-xl font-bold mb-4 mt-8 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-funds-box-line"></i>
+                            </div>
+                            Akuntansi Keuangan
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Siklus akuntansi lengkap</li>
+                            <li class="text-gray-600">Akuntansi persediaan</li>
+                            <li class="text-gray-600">Akuntansi aset tetap</li>
+                            <li class="text-gray-600">Hutang dan piutang</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-computer-line"></i>
+                            </div>
+                            Software Akuntansi
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">MYOB Accounting</li>
+                            <li class="text-gray-600">Accurate Accounting</li>
+                            <li class="text-gray-600">Excel untuk akuntansi</li>
+                            <li class="text-gray-600">Integrasi sistem akuntansi</li>
+                        </ul>
+                        
+                        <h3 class="text-xl font-bold mb-4 mt-8 flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                <i class="ri-file-chart-line"></i>
+                            </div>
+                            Pajak & Laporan
+                        </h3>
+                        <ul class="space-y-2 pl-11">
+                            <li class="text-gray-600">Dasar-dasar perpajakan</li>
+                            <li class="text-gray-600">PPh dan PPN</li>
+                            <li class="text-gray-600">Pelaporan keuangan</li>
+                            <li class="text-gray-600">Analisis laporan keuangan dasar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Jadwal & Biaya -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Jadwal & Biaya</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Kami menawarkan jadwal fleksibel dan biaya terjangkau untuk memudahkan Anda mengikuti program pelatihan.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Jadwal -->
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                        <i class="ri-calendar-line text-xl"></i>
+                    </div>
+                    Jadwal Kelas
+                </h3>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-semibold text-lg mb-2">Kelas Reguler</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <div>
+                                    <span class="font-medium">Senin & Rabu</span>
+                                    <p class="text-gray-600">09.00 - 11.00 WIB atau 13.00 - 15.00 WIB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <div>
+                                    <span class="font-medium">Selasa & Kamis</span>
+                                    <p class="text-gray-600">09.00 - 11.00 WIB atau 13.00 - 15.00 WIB</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-lg mb-2">Kelas Weekend</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <div>
+                                    <span class="font-medium">Sabtu</span>
+                                    <p class="text-gray-600">09.00 - 12.00 WIB atau 13.00 - 16.00 WIB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <div>
+                                    <span class="font-medium">Minggu</span>
+                                    <p class="text-gray-600">09.00 - 12.00 WIB</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-100">
+                        <h4 class="font-semibold text-lg mb-2">Kelas Privat</h4>
+                        <p class="text-gray-600">Tersedia jadwal fleksibel sesuai kesepakatan. Hubungi kami untuk informasi lebih lanjut.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fasilitas -->
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                        <i class="ri-service-line text-xl"></i>
+                    </div>
+                    Fasilitas & Biaya
+                </h3>
+                
+                <div class="space-y-4 mb-6">
+                    <h4 class="font-semibold text-lg">Fasilitas Yang Didapat:</h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Modul pembelajaran</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Komputer modern</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Software berlisensi</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Free WiFi</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Sertifikat</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Ruang AC</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Konsultasi gratis</span>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2 mt-1 text-primary">
+                                <i class="ri-check-line"></i>
+                            </div>
+                            <span class="text-gray-600">Info lowongan kerja</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-4 border-t border-gray-100">
+                    <h4 class="font-semibold text-lg mb-4">Biaya Program:</h4>
+                    <p class="text-gray-600 mb-4">Kami menawarkan berbagai opsi pembayaran yang fleksibel untuk memudahkan Anda, termasuk pembayaran cicilan.</p>
+                    
+                    <div class="flex justify-center mt-6">
+                        <a href="https://wa.me/6281234567890" class="bg-green-500 text-white px-6 py-3 rounded-button font-medium hover:bg-green-600 transition duration-300 flex items-center whitespace-nowrap">
+                            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-whatsapp-fill"></i>
+                            </div>
+                            Tanyakan Biaya via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fasilitas -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Fasilitas Modern</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Kami menyediakan fasilitas belajar modern untuk memastikan pengalaman belajar yang optimal bagi setiap siswa.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520computer%2520lab%2520with%2520rows%2520of%2520computers%252C%2520clean%2520and%2520bright%2520environment%252C%2520indonesian%2520education%2520setting%252C%2520high%2520quality%2520photo&width=400&height=300&seq=8&orientation=landscape');" class="h-48 bg-center bg-cover"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                            <i class="ri-computer-line"></i>
+                        </div>
+                        Lab Komputer Modern
+                    </h3>
+                    <p class="text-gray-600">Dilengkapi dengan komputer spesifikasi tinggi dan software berlisensi untuk mendukung pembelajaran.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=comfortable%2520classroom%2520with%2520projector%2520and%2520whiteboard%252C%2520modern%2520learning%2520environment%252C%2520indonesian%2520education%2520setting%252C%2520bright%2520and%2520clean%252C%2520high%2520quality%2520photo&width=400&height=300&seq=9&orientation=landscape');" class="h-48 bg-center bg-cover"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                            <i class="ri-projector-line"></i>
+                        </div>
+                        Ruang Kelas Nyaman
+                    </h3>
+                    <p class="text-gray-600">Ruang kelas ber-AC dengan proyektor dan peralatan audio visual untuk pembelajaran yang efektif.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520study%2520materials%252C%2520books%252C%2520modules%2520and%2520digital%2520resources%2520for%2520accounting%2520and%2520computer%2520courses%252C%2520indonesian%2520education%2520materials%252C%2520high%2520quality%2520photo&width=400&height=300&seq=10&orientation=landscape');" class="h-48 bg-center bg-cover"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                            <i class="ri-book-open-line"></i>
+                        </div>
+                        Modul Pembelajaran
+                    </h3>
+                    <p class="text-gray-600">Modul pembelajaran komprehensif yang diperbarui secara berkala sesuai perkembangan teknologi dan industri.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520certificate%2520with%2520seal%2520and%2520signature%252C%2520indonesian%2520style%2520certificate%252C%2520computer%2520and%2520accounting%2520course%2520certificate%252C%2520high%2520quality%2520photo&width=400&height=300&seq=11&orientation=landscape');" class="h-48 bg-center bg-cover"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                            <i class="ri-award-line"></i>
+                        </div>
+                        Sertifikasi
+                    </h3>
+                    <p class="text-gray-600">Sertifikat resmi dari LPK Nissan Fortuna yang diakui oleh perusahaan-perusahaan terkemuka.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=student%2520lounge%2520with%2520wifi%2520access%252C%2520comfortable%2520seating%252C%2520indonesian%2520education%2520facility%252C%2520bright%2520and%2520modern%2520space%252C%2520high%2520quality%2520photo&width=400&height=300&seq=12&orientation=landscape');" class="h-48 bg-center bg-cover"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                            <i class="ri-wifi-line"></i>
+                        </div>
+                        Free WiFi
+                    </h3>
+                    <p class="text-gray-600">Akses internet cepat dan stabil untuk mendukung pembelajaran dan penelitian online.</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2">
+                <div style="background-image: url('https://readdy.ai/api/search-image?query=career%2520counseling%2520session%252C%2520indonesian%2520education%2520consultant%2520helping%2520student%252C%2520professional%2520office%2520setting%252C%2520high%2520quality%2520photo&width=400&height=300&seq=13&orientation=landscape');" class="h-48 bg-center bg-cover"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 flex items-center">
+                        <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                            <i class="ri-user-voice-line"></i>
+                        </div>
+                        Konsultasi Karir
+                    </h3>
+                    <p class="text-gray-600">Layanan konsultasi karir dan informasi lowongan kerja untuk membantu alumni mendapatkan pekerjaan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimoni Alumni -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Testimoni Alumni</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Dengarkan pengalaman dari alumni kami yang telah sukses menerapkan keterampilan yang dipelajari di dunia kerja.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Testimoni 1 -->
+            <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="text-yellow-400 flex">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-6">"Kursus komputer di LPK Nissan Fortuna sangat bermanfaat untuk karir saya. Saya belajar banyak tentang Microsoft Office yang saat ini saya gunakan setiap hari di kantor. Instrukturnya sangat sabar dan profesional."</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                        <div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520indonesian%2520female%2520office%2520worker%252C%2520smiling%252C%2520business%2520attire%252C%2520neutral%2520background%252C%2520high%2520quality%2520portrait&width=100&height=100&seq=14&orientation=squarish');" class="w-full h-full bg-center bg-cover"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Anita Wijaya</h4>
+                        <p class="text-sm text-gray-500">Admin HR di PT Maju Bersama</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimoni 2 -->
+            <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="text-yellow-400 flex">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-6">"Program akuntansi di Nissan Fortuna sangat komprehensif. Saya belajar dari dasar hingga penggunaan software akuntansi yang langsung bisa saya aplikasikan di pekerjaan. Berkat kursus ini, saya mendapatkan promosi di perusahaan."</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                        <div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520indonesian%2520male%2520accountant%252C%2520smiling%252C%2520business%2520attire%252C%2520neutral%2520background%252C%2520high%2520quality%2520portrait&width=100&height=100&seq=15&orientation=squarish');" class="w-full h-full bg-center bg-cover"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Bayu Pratama</h4>
+                        <p class="text-sm text-gray-500">Staff Accounting di Bank BCA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimoni 3 -->
+            <div class="testimonial-card bg-white p-6 rounded-lg shadow-md">
+                <div class="flex items-center mb-4">
+                    <div class="text-yellow-400 flex">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-half-fill"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-6">"Sebagai lulusan SMA, kursus KOMPAK sangat membantu saya mendapatkan pekerjaan pertama. Fasilitas belajarnya lengkap dan modern. Saya juga mendapat bantuan dalam menyusun CV dan persiapan interview. Terima kasih Nissan Fortuna!"</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                        <div style="background-image: url('https://readdy.ai/api/search-image?query=professional%2520headshot%2520of%2520young%2520indonesian%2520female%2520office%2520worker%252C%2520smiling%252C%2520business%2520casual%2520attire%252C%2520neutral%2520background%252C%2520high%2520quality%2520portrait&width=100&height=100&seq=16&orientation=squarish');" class="w-full h-full bg-center bg-cover"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Dina Permata</h4>
+                        <p class="text-sm text-gray-500">Admin di PT Indofood</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Prospek Karir -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Prospek Karir</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Program KOMPAK membuka peluang karir yang luas di berbagai industri. Berikut adalah beberapa posisi yang dapat Anda lamar setelah menyelesaikan program.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                        <i class="ri-computer-line"></i>
+                    </div>
+                    Karir Lulusan Program Komputer
+                </h3>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-user-settings-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Admin Perkantoran</h4>
+                            <p class="text-gray-600">Mengelola dokumen, korespondensi, dan administrasi kantor.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-customer-service-2-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Customer Service</h4>
+                            <p class="text-gray-600">Melayani pelanggan dan mengelola database pelanggan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-database-2-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Data Entry</h4>
+                            <p class="text-gray-600">Input dan pengelolaan data perusahaan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-file-chart-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Asisten Administrasi</h4>
+                            <p class="text-gray-600">Membantu pekerjaan administratif di berbagai departemen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-bold mb-6 flex items-center">
+                    <div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                        <i class="ri-calculator-line"></i>
+                    </div>
+                    Karir Lulusan Program Akuntansi
+                </h3>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-bank-card-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Staff Accounting</h4>
+                            <p class="text-gray-600">Mengelola pembukuan dan laporan keuangan perusahaan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-money-dollar-circle-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Kasir</h4>
+                            <p class="text-gray-600">Mengelola transaksi keuangan dan rekonsiliasi kas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-bill-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Admin Pajak</h4>
+                            <p class="text-gray-600">Membantu pengelolaan dan pelaporan pajak perusahaan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start bg-gray-50 p-4 rounded-lg">
+                        <div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary shrink-0">
+                            <i class="ri-file-list-3-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Admin Keuangan</h4>
+                            <p class="text-gray-600">Mengelola administrasi keuangan dan laporan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Statistik Penempatan Kerja -->
+        <div class="bg-gray-50 rounded-lg shadow-md p-8 mb-8">
+            <h3 class="text-xl font-bold mb-6 text-center">Statistik Penempatan Kerja Alumni</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div id="chartPlacement" class="w-full h-80"></div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Perusahaan Partner Kami:</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                            <div class="w-10 h-10 flex items-center justify-center mr-3 text-blue-600">
+                                <i class="ri-bank-fill text-2xl"></i>
+                            </div>
+                            <span class="font-medium">Bank BCA</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                            <div class="w-10 h-10 flex items-center justify-center mr-3 text-blue-800">
+                                <i class="ri-building-4-fill text-2xl"></i>
+                            </div>
+                            <span class="font-medium">Astra International</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                            <div class="w-10 h-10 flex items-center justify-center mr-3 text-red-600">
+                                <i class="ri-building-2-fill text-2xl"></i>
+                            </div>
+                            <span class="font-medium">Telkom Indonesia</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                            <div class="w-10 h-10 flex items-center justify-center mr-3 text-green-600">
+                                <i class="ri-store-2-fill text-2xl"></i>
+                            </div>
+                            <span class="font-medium">Tokopedia</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                            <div class="w-10 h-10 flex items-center justify-center mr-3 text-red-500">
+                                <i class="ri-shopping-cart-fill text-2xl"></i>
+                            </div>
+                            <span class="font-medium">Alfamart</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                            <div class="w-10 h-10 flex items-center justify-center mr-3 text-yellow-600">
+                                <i class="ri-restaurant-fill text-2xl"></i>
+                            </div>
+                            <span class="font-medium">Indofood</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <p class="text-gray-600">Kami memiliki jaringan dengan lebih dari 50+ perusahaan partner yang secara rutin merekrut alumni kami. Program penempatan kerja kami membantu 85% alumni mendapatkan pekerjaan dalam 3 bulan setelah lulus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form Pendaftaran -->
+<section id="daftar" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Formulir Pendaftaran</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Isi formulir di bawah ini untuk mendaftar program KOMPAK. Tim kami akan menghubungi Anda segera.</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8">
+            <form>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="nama" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan nama lengkap Anda">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan email Anda">
+                    </div>
+                    
+                    <div>
+                        <label for="telepon" class="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
+                        <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Contoh: 081234567890">
+                    </div>
+                    
+                    <div>
+                        <label for="pendidikan" class="block text-gray-700 font-medium mb-2">Pendidikan Terakhir</label>
+                        <div class="relative">
+                            <select id="pendidikan" name="pendidikan" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+                                <option value="">Pilih pendidikan terakhir</option>
+                                <option value="smp">SMP/Sederajat</option>
+                                <option value="sma">SMA/SMK/Sederajat</option>
+                                <option value="d3">D3</option>
+                                <option value="s1">S1</option>
+                                <option value="s2">S2</option>
+                            </select>
+                            <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                <i class="ri-arrow-down-s-line text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-2">Program yang Diminati</label>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <label class="custom-checkbox">Paket Komputer
+                            <input type="checkbox" name="program" value="komputer">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-checkbox">Paket Akuntansi
+                            <input type="checkbox" name="program" value="akuntansi">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-2">Jadwal yang Diinginkan</label>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <label class="custom-checkbox">Kelas Pagi (09.00 - 11.00)
+                            <input type="radio" name="jadwal" value="pagi">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-checkbox">Kelas Siang (13.00 - 15.00)
+                            <input type="radio" name="jadwal" value="siang">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-checkbox">Kelas Weekend (Sabtu)
+                            <input type="radio" name="jadwal" value="sabtu">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="custom-checkbox">Kelas Weekend (Minggu)
+                            <input type="radio" name="jadwal" value="minggu">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="pesan" class="block text-gray-700 font-medium mb-2">Pesan Tambahan (Opsional)</label>
+                    <textarea id="pesan" name="pesan" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Tuliskan pesan atau pertanyaan Anda"></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="custom-checkbox">
+                        Saya menyetujui syarat dan ketentuan yang berlaku
+                        <input type="checkbox" name="agreement" required>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
+                    <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Kirim Pendaftaran</button>
+                    
+                    <a href="https://wa.me/6281234567890" class="flex items-center text-green-600 hover:text-green-700">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-whatsapp-fill"></i>
+                        </div>
+                        <span>Atau daftar via WhatsApp</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-primary">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-white mb-6">Siap Untuk Memulai Karir Baru?</h2>
+        <p class="text-white text-lg mb-8 max-w-2xl mx-auto">Bergabunglah dengan ribuan alumni sukses kami. Daftar sekarang dan mulai perjalanan menuju karir impian Anda!</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#daftar" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition duration-300 whitespace-nowrap">Daftar Sekarang</a>
+            <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition duration-300 whitespace-nowrap">Kembali ke Menu Utama</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <!-- About -->
+            <div>
+                <a href="#" class="inline-block mb-6">
+                    <span class="text-white font-['Pacifico'] text-2xl">logo</span>
+                </a>
+                <p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga terjangkau.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                        <i class="ri-youtube-line"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Artikel</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            
+            <!-- Layanan -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Layanan</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mengemudi</a></li>
+                    <li><a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="text-primary hover:text-white transition duration-300">Kursus Komputer & Akuntansi</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mekanik Otomotif</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Jadwal Kursus</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biaya Kursus</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div>
+                <h3 class="text-xl font-bold mb-6">Kontak</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <span class="text-gray-400">Jl. Raya Utama No. 123, Kota Jakarta, Indonesia 12345</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-phone-line"></i>
+                        </div>
+                        <span class="text-gray-400">+62 21 1234 5678</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-mail-line"></i>
+                        </div>
+                        <span class="text-gray-400">info@nissanfortuna.co.id</span>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                            <i class="ri-time-line"></i>
+                        </div>
+                        <span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta Dilindungi.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan Privasi</a>
+                    <a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+    <i class="ri-whatsapp-line text-white text-2xl"></i>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuButton = document.querySelector('button.md\\:hidden');
+    const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+    const closeButton = document.querySelector('.ri-close-line').parentElement;
+    
+    if (menuButton && mobileMenu && closeButton) {
+        menuButton.addEventListener('click', function() {
+            mobileMenu.classList.remove('hidden');
+        });
+        
+        closeButton.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+        });
+    }
+    
+    // Mobile submenu toggle
+    const mobileSubmenuButton = document.querySelector('.py-2 button');
+    const mobileSubmenu = document.querySelector('.pl-4.mt-2.hidden');
+    
+    if (mobileSubmenuButton && mobileSubmenu) {
+        mobileSubmenuButton.addEventListener('click', function() {
+            mobileSubmenu.classList.toggle('hidden');
+        });
+    }
+    
+    // Tab switching for curriculum
+    const tabKomputer = document.getElementById('tab-komputer');
+    const tabAkuntansi = document.getElementById('tab-akuntansi');
+    const contentKomputer = document.getElementById('content-komputer');
+    const contentAkuntansi = document.getElementById('content-akuntansi');
+    
+    if (tabKomputer && tabAkuntansi && contentKomputer && contentAkuntansi) {
+        tabKomputer.addEventListener('click', function() {
+            tabKomputer.classList.add('tab-active');
+            tabKomputer.classList.remove('text-gray-700');
+            tabAkuntansi.classList.remove('tab-active');
+            tabAkuntansi.classList.add('text-gray-700');
+            contentKomputer.classList.remove('hidden');
+            contentAkuntansi.classList.add('hidden');
+        });
+        
+        tabAkuntansi.addEventListener('click', function() {
+            tabAkuntansi.classList.add('tab-active');
+            tabAkuntansi.classList.remove('text-gray-700');
+            tabKomputer.classList.remove('tab-active');
+            tabKomputer.classList.add('text-gray-700');
+            contentAkuntansi.classList.remove('hidden');
+            contentKomputer.classList.add('hidden');
+        });
+    }
+    
+    // Initialize ECharts
+    if (document.getElementById('chartPlacement')) {
+        const chartPlacement = echarts.init(document.getElementById('chartPlacement'));
+        
+        const option = {
+            animation: false,
+            tooltip: {
+                trigger: 'item',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                borderColor: '#e5e7eb',
+                textStyle: {
+                    color: '#1f2937'
+                }
+            },
+            legend: {
+                top: '5%',
+                left: 'center',
+                textStyle: {
+                    color: '#1f2937'
+                }
+            },
+            series: [
+                {
+                    name: 'Penempatan Kerja',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 16,
+                            fontWeight: 'bold',
+                            color: '#1f2937'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        { value: 45, name: 'Perusahaan Swasta', itemStyle: { color: 'rgba(87, 181, 231, 1)' } },
+                        { value: 25, name: 'Perbankan & Keuangan', itemStyle: { color: 'rgba(141, 211, 199, 1)' } },
+                        { value: 15, name: 'Retail & E-commerce', itemStyle: { color: 'rgba(251, 191, 114, 1)' } },
+                        { value: 15, name: 'Sektor Lainnya', itemStyle: { color: 'rgba(252, 141, 98, 1)' } }
+                    ]
+                }
+            ]
+        };
+        
+        chartPlacement.setOption(option);
+        
+        window.addEventListener('resize', function() {
+            chartPlacement.resize();
+        });
+    }
+});
+</script>
+</body>
+</html>
