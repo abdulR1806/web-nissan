@@ -583,19 +583,19 @@
                     <div>
 
                         <div class="p-8">
-                            <form>
+                            <form id="registration-form">
                                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                                     <div>
                                         <label for="nama" class="block text-gray-700 font-medium mb-2">Nama
                                             Lengkap</label>
-                                        <input type="text" id="nama"
+                                        <input type="text" id="nama" name="nama" required
                                             class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
                                             placeholder="Masukkan nama lengkap">
                                     </div>
                                     <div>
                                         <label for="telepon" class="block text-gray-700 font-medium mb-2">Nomor
                                             WhatsApp</label>
-                                        <input type="tel" id="telepon"
+                                        <input type="tel" id="telepon" name="telepon" required
                                             class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
                                             placeholder="Masukkan nomor WhatsApp">
                                     </div>
@@ -603,7 +603,7 @@
 
                                 <div class="mb-6">
                                     <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                                    <input type="email" id="email"
+                                    <input type="email" id="email" name="email" required
                                         class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
                                         placeholder="Masukkan alamat email">
                                 </div>
@@ -611,29 +611,35 @@
                                 <div class="mb-6">
                                     <label for="paket" class="block text-gray-700 font-medium mb-2">Paket Yang
                                         Diminati</label>
-                                    <select id="paket"
+                                    <select id="paket" name="paket" required
                                         class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary pr-8">
                                         <option value="">Pilih Paket</option>
-                                        <option value="dasar">Paket Dasar (1 Bulan)</option>
-                                        <option value="menengah">Paket Menengah (2 Bulan)</option>
-                                        <option value="mahir">Paket Mahir (3 Bulan)</option>
+                                        <option value="Paket Dasar (1 Bulan)">Paket Dasar (1 Bulan)</option>
+                                        <option value="Paket Menengah (2 Bulan)">Paket Menengah (2 Bulan)</option>
+                                        <option value="Paket Mahir (3 Bulan)">Paket Mahir (3 Bulan)</option>
                                     </select>
                                 </div>
 
                                 <div class="mb-6">
                                     <label for="pesan" class="block text-gray-700 font-medium mb-2">Pesan
                                         (Opsional)</label>
-                                    <textarea id="pesan" rows="4"
+                                    <textarea id="pesan" name="pesan" rows="4"
                                         class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
                                         placeholder="Masukkan pertanyaan atau pesan tambahan"></textarea>
                                 </div>
 
                                 <div class="mb-6">
                                     <label class="flex items-center">
-                                        <input type="checkbox" class="custom-checkbox mr-2">
+                                        <input type="checkbox" id="agreement" name="agreement" class="custom-checkbox mr-2" required>
                                         <span class="text-sm text-gray-600">Saya setuju dengan syarat dan ketentuan yang
                                             berlaku</span>
                                     </label>
+                                    <div id="agreement-warning" class="hidden mt-2 p-2 bg-amber-50 border border-amber-300 rounded-md flex items-start">
+                                        <div class="w-5 h-5 flex-shrink-0 text-amber-500 mr-2">
+                                            <i class="ri-error-warning-fill"></i>
+                                        </div>
+                                        <span class="text-sm text-amber-700">Silakan centang kotak ini jika Anda ingin melanjutkan.</span>
+                                    </div>
                                 </div>
 
                                 <button type="submit"
@@ -833,6 +839,65 @@
                 if (mobileSubmenuButton && mobileSubmenu) {
                     mobileSubmenuButton.addEventListener('click', function () {
                         mobileSubmenu.classList.toggle('hidden');
+                    });
+                }
+
+                // Agreement checkbox handler
+                const agreementCheckbox = document.getElementById('agreement');
+                const agreementWarning = document.getElementById('agreement-warning');
+
+                if (agreementCheckbox && agreementWarning) {
+                    agreementCheckbox.addEventListener('change', function() {
+                        if (this.checked) {
+                            agreementWarning.classList.add('hidden');
+                        }
+                    });
+                }
+
+                // Registration form submission handler
+                const registrationForm = document.getElementById('registration-form');
+
+                if (registrationForm) {
+                    registrationForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        // Get form values
+                        const nama = document.getElementById('nama').value;
+                        const telepon = document.getElementById('telepon').value;
+                        const email = document.getElementById('email').value;
+                        const paket = document.getElementById('paket').value;
+                        const pesan = document.getElementById('pesan').value;
+
+                        // Get agreement checkbox
+                        const agreement = document.getElementById('agreement').checked;
+
+                        // Basic validation
+                        if (!nama || !telepon || !email || !paket) {
+                            alert('Mohon lengkapi semua field yang diperlukan.');
+                            return;
+                        }
+
+                        // Check agreement
+                        if (!agreement) {
+                            // Show the warning message instead of alert
+                            document.getElementById('agreement-warning').classList.remove('hidden');
+                            return;
+                        } else {
+                            // Hide the warning message if it's visible
+                            document.getElementById('agreement-warning').classList.add('hidden');
+                        }
+
+                        // Format message for WhatsApp
+                        const whatsappMessage = `Halo, saya ingin mendaftar kursus mekanik otomotif.\n\n*Data Pendaftaran:*\n\nNama: ${nama}\nNo. WhatsApp: ${telepon}\nEmail: ${email}\nPaket: ${paket}${pesan ? '\nPesan: ' + pesan : ''}`;
+
+                        // Create WhatsApp URL with the formatted message
+                        const whatsappUrl = `https://wa.me/6285640709809?text=${encodeURIComponent(whatsappMessage)}`;
+
+                        // Open WhatsApp in a new tab
+                        window.open(whatsappUrl, '_blank');
+
+                        // Reset the form after submission
+                        registrationForm.reset();
                     });
                 }
             });

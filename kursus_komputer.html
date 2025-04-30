@@ -1040,33 +1040,33 @@ input:checked + .slider:before {
         </div>
 
         <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8">
-            <form>
+            <form id="registration-form">
                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="nama" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
-                        <input type="text" id="nama" name="nama" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan nama lengkap Anda">
+                        <input type="text" id="nama" name="nama" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan nama lengkap Anda">
                     </div>
 
                     <div>
                         <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan email Anda">
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan email Anda">
                     </div>
 
                     <div>
                         <label for="telepon" class="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
-                        <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Contoh: 081234567890">
+                        <input type="tel" id="telepon" name="telepon" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Contoh: 081234567890">
                     </div>
 
                     <div>
                         <label for="pendidikan" class="block text-gray-700 font-medium mb-2">Pendidikan Terakhir</label>
                         <div class="relative">
-                            <select id="pendidikan" name="pendidikan" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+                            <select id="pendidikan" name="pendidikan" required class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
                                 <option value="">Pilih pendidikan terakhir</option>
-                                <option value="smp">SMP/Sederajat</option>
-                                <option value="sma">SMA/SMK/Sederajat</option>
-                                <option value="d3">D3</option>
-                                <option value="s1">S1</option>
-                                <option value="s2">S2</option>
+                                <option value="SMP/Sederajat">SMP/Sederajat</option>
+                                <option value="SMA/SMK/Sederajat">SMA/SMK/Sederajat</option>
+                                <option value="D3">D3</option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
                             </select>
                             <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                                 <i class="ri-arrow-down-s-line text-gray-400"></i>
@@ -1079,11 +1079,11 @@ input:checked + .slider:before {
                     <label class="block text-gray-700 font-medium mb-2">Program yang Diminati</label>
                     <div class="grid md:grid-cols-2 gap-4">
                         <label class="custom-checkbox">Paket Komputer
-                            <input type="checkbox" name="program" value="komputer">
+                            <input type="checkbox" id="program_komputer" name="program" value="Paket Komputer">
                             <span class="checkmark"></span>
                         </label>
                         <label class="custom-checkbox">Paket Akuntansi
-                            <input type="checkbox" name="program" value="akuntansi">
+                            <input type="checkbox" id="program_akuntansi" name="program" value="Paket Akuntansi">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -1093,19 +1093,19 @@ input:checked + .slider:before {
                     <label class="block text-gray-700 font-medium mb-2">Jadwal yang Diinginkan</label>
                     <div class="grid md:grid-cols-2 gap-4">
                         <label class="custom-checkbox">Kelas Pagi (09.00 - 11.00)
-                            <input type="radio" name="jadwal" value="pagi">
+                            <input type="radio" id="jadwal_pagi" name="jadwal" value="Kelas Pagi (09.00 - 11.00)">
                             <span class="checkmark"></span>
                         </label>
                         <label class="custom-checkbox">Kelas Siang (13.00 - 15.00)
-                            <input type="radio" name="jadwal" value="siang">
+                            <input type="radio" id="jadwal_siang" name="jadwal" value="Kelas Siang (13.00 - 15.00)">
                             <span class="checkmark"></span>
                         </label>
                         <label class="custom-checkbox">Kelas Weekend (Sabtu)
-                            <input type="radio" name="jadwal" value="sabtu">
+                            <input type="radio" id="jadwal_sabtu" name="jadwal" value="Kelas Weekend (Sabtu)">
                             <span class="checkmark"></span>
                         </label>
                         <label class="custom-checkbox">Kelas Weekend (Minggu)
-                            <input type="radio" name="jadwal" value="minggu">
+                            <input type="radio" id="jadwal_minggu" name="jadwal" value="Kelas Weekend (Minggu)">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -1119,21 +1119,21 @@ input:checked + .slider:before {
                 <div class="mb-6">
                     <label class="custom-checkbox">
                         Saya menyetujui syarat dan ketentuan yang berlaku
-                        <input type="checkbox" name="agreement" required>
+                        <input type="checkbox" id="agreement" name="agreement" required>
                         <span class="checkmark"></span>
                     </label>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
-                    <button type="submit" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Kirim Pendaftaran</button>
-
-                    <a href="https://wa.me/6285640709809" class="flex items-center text-green-600 hover:text-green-700">
-                        <div class="w-5 h-5 flex items-center justify-center mr-2">
-                            <i class="ri-whatsapp-fill"></i>
+                    <div id="agreement-warning" class="hidden mt-2 p-2 bg-amber-50 border border-amber-300 rounded-md flex items-start">
+                        <div class="w-5 h-5 flex-shrink-0 text-amber-500 mr-2">
+                            <i class="ri-error-warning-fill"></i>
                         </div>
-                        <span>Atau daftar via WhatsApp</span>
-                    </a>
+                        <span class="text-sm text-amber-700">Silakan centang kotak ini jika Anda ingin melanjutkan.</span>
+                    </div>
                 </div>
+
+                    <button type="submit"
+                    class="w-full bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Daftar
+                    Sekarang</button>
+
             </form>
         </div>
     </div>
@@ -1146,7 +1146,13 @@ input:checked + .slider:before {
         <p class="text-white text-lg mb-8 max-w-2xl mx-auto">Bergabunglah dengan ribuan alumni sukses kami. Daftar sekarang dan mulai perjalanan menuju karir impian Anda!</p>
         <div class="flex flex-wrap justify-center gap-4">
             <a href="#daftar" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition duration-300 whitespace-nowrap">Daftar Sekarang</a>
-            <a href="https://readdy.ai/home/c9168e8e-22a9-4193-a447-07ec0d090820/aecd2504-9d31-4f74-857a-84a8a7f5c83e" data-readdy="true" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition duration-300 whitespace-nowrap">Kembali ke Menu Utama</a>
+            <a href="https://wa.me/6285640709809"
+            class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition duration-300 whitespace-nowrap flex items-center justify-center">
+            <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-whatsapp-line"></i>
+            </div>
+            Hubungi via WhatsApp
+        </a>
         </div>
     </div>
 </section>
@@ -1330,6 +1336,90 @@ document.addEventListener('DOMContentLoaded', function() {
             tabKomputer.classList.add('text-gray-700');
             contentAkuntansi.classList.remove('hidden');
             contentKomputer.classList.add('hidden');
+        });
+    }
+
+    // Agreement checkbox handler
+    const agreementCheckbox = document.getElementById('agreement');
+    const agreementWarning = document.getElementById('agreement-warning');
+
+    if (agreementCheckbox && agreementWarning) {
+        agreementCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                agreementWarning.classList.add('hidden');
+            }
+        });
+    }
+
+    // Registration form submission handler
+    const registrationForm = document.getElementById('registration-form');
+
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            const telepon = document.getElementById('telepon').value;
+            const pendidikan = document.getElementById('pendidikan').value;
+
+            // Get selected programs (checkboxes)
+            const programKomputer = document.getElementById('program_komputer').checked;
+            const programAkuntansi = document.getElementById('program_akuntansi').checked;
+            let programText = '';
+
+            if (programKomputer) {
+                programText += 'Paket Komputer';
+            }
+
+            if (programAkuntansi) {
+                if (programText) programText += ', ';
+                programText += 'Paket Akuntansi';
+            }
+
+            // Get selected jadwal (radio)
+            let jadwal = '';
+            const jadwalOptions = document.querySelectorAll('input[name="jadwal"]');
+            for (const option of jadwalOptions) {
+                if (option.checked) {
+                    jadwal = option.value;
+                    break;
+                }
+            }
+
+            const pesan = document.getElementById('pesan').value;
+
+            // Get agreement checkbox
+            const agreement = document.getElementById('agreement').checked;
+
+            // Basic validation
+            if (!nama || !email || !telepon || !pendidikan || !programText || !jadwal) {
+                alert('Mohon lengkapi semua field yang diperlukan.');
+                return;
+            }
+
+            // Check agreement
+            if (!agreement) {
+                // Show the warning message instead of alert
+                document.getElementById('agreement-warning').classList.remove('hidden');
+                return;
+            } else {
+                // Hide the warning message if it's visible
+                document.getElementById('agreement-warning').classList.add('hidden');
+            }
+
+            // Format message for WhatsApp
+            const whatsappMessage = `Halo, saya ingin mendaftar kursus komputer & akuntansi.\n\n*Data Pendaftaran:*\n\nNama: ${nama}\nEmail: ${email}\nNo. Telepon: ${telepon}\nPendidikan Terakhir: ${pendidikan}\nProgram yang Diminati: ${programText}\nJadwal yang Diinginkan: ${jadwal}${pesan ? '\nPesan: ' + pesan : ''}`;
+
+            // Create WhatsApp URL with the formatted message
+            const whatsappUrl = `https://wa.me/6285640709809?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+
+            // Reset the form after submission
+            registrationForm.reset();
         });
     }
 
