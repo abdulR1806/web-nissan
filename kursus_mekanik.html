@@ -1,703 +1,814 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kursus Mekanik Otomotif - LPK Nissan Fortuna</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#e31d1a',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-body {
-font-family: 'Poppins', sans-serif;
-}
-.dropdown {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-z-index: 50;
-}
-.dropdown-container:hover .dropdown {
-display: block;
-}
-.nav-link {
-position: relative;
-}
-.nav-link::after {
-content: '';
-position: absolute;
-width: 0;
-height: 2px;
-bottom: -2px;
-left: 0;
-background-color: #e31d1a;
-transition: width 0.3s;
-}
-.nav-link:hover::after {
-width: 100%;
-}
-.whatsapp-button {
-position: fixed;
-bottom: 20px;
-right: 20px;
-z-index: 100;
-}
-input:focus, textarea:focus {
-outline: none;
-border-color: #e31d1a;
-}
-.custom-checkbox {
-appearance: none;
--webkit-appearance: none;
-width: 20px;
-height: 20px;
-border: 2px solid #e31d1a;
-border-radius: 4px;
-outline: none;
-cursor: pointer;
-position: relative;
-}
-.custom-checkbox:checked {
-background-color: #e31d1a;
-}
-.custom-checkbox:checked::after {
-content: '';
-position: absolute;
-top: 2px;
-left: 6px;
-width: 6px;
-height: 10px;
-border: solid white;
-border-width: 0 2px 2px 0;
-transform: rotate(45deg);
-}
-.tab-active {
-background-color: #e31d1a;
-color: white;
-}
-.tab-content {
-display: none;
-}
-.tab-content.active {
-display: block;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursus Mekanik Otomotif - LPK Nissan Fortuna</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#e31d1a', secondary: '#000000' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+        }
+
+        .dropdown-container:hover .dropdown {
+            display: block;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #e31d1a;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #e31d1a;
+        }
+
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e31d1a;
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .custom-checkbox:checked {
+            background-color: #e31d1a;
+        }
+
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .tab-active {
+            background-color: #e31d1a;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
 </head>
+
 <body class="bg-white">
-<!-- Header -->
-<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-<div class="container mx-auto px-4 py-3 flex justify-between items-center">
-<a href="#" class="flex items-center">
-<span class="text-primary font-['Pacifico'] text-2xl">logo</span>
-</a>
-<nav class="hidden md:flex items-center space-x-6">
-<a href="home.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
-<div class="dropdown-container relative">
-<button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
-Layanan
-<div class="w-5 h-5 flex items-center justify-center ml-1">
-<i class="ri-arrow-down-s-line"></i>
-</div>
-</button>
-<div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
-<a href="kursus_mengemudi.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
-<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
-<i class="ri-steering-2-line"></i>
-</div>
-Kursus Mengemudi
-</a>
-<a href="kursus_komputer.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
-<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
-<i class="ri-computer-line"></i>
-</div>
-Kursus Komputer & Akuntansi
-</a>
-<a href="kursus_mekanik.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
-<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
-<i class="ri-tools-line"></i>
-</div>
-Kursus Mekanik Otomotif
-</a>
-</div>
-</div>
-<a href="artikel.html" class="nav-link text-gray-800 hover:text-primary font-medium">Artikel</a>
-<a href="lokasi.html" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
-<a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Hubungi Kami</a>
-</nav>
-<button class="md:hidden w-10 h-10 flex items-center justify-center">
-<i class="ri-menu-line text-2xl"></i>
-</button>
-</div>
-</header>
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="home.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+                <div class="dropdown-container relative">
+                    <button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
+                        Layanan
+                        <div class="w-5 h-5 flex items-center justify-center ml-1">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
+                        <a href="kursus_mengemudi.html"
+                            class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                                <i class="ri-steering-2-line"></i>
+                            </div>
+                            Kursus Mengemudi
+                        </a>
+                        <a href="kursus_komputer.html"
+                            class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                                <i class="ri-computer-line"></i>
+                            </div>
+                            Kursus Komputer & Akuntansi
+                        </a>
+                        <a href="kursus_mekanik.html"
+                            class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                                <i class="ri-tools-line"></i>
+                            </div>
+                            Kursus Mekanik Otomotif
+                        </a>
+                    </div>
+                </div>
+                <a href="artikel.html" class="nav-link text-gray-800 hover:text-primary font-medium">Artikel</a>
+                <a href="lokasi.html" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
+                <a href="#" class="nav-link text-gray-800 hover:text-primary font-medium">Hubungi Kami</a>
+            </nav>
+            <button class="md:hidden w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+    </header>
 
-<!-- Mobile Menu (Hidden by default) -->
-<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
-<div class="bg-white h-full w-64 shadow-lg p-5">
-<div class="flex justify-between items-center mb-6">
-<span class="text-primary font-['Pacifico'] text-2xl">logo</span>
-<button class="w-8 h-8 flex items-center justify-center">
-<i class="ri-close-line text-2xl"></i>
-</button>
-</div>
-<nav class="flex flex-col space-y-4">
-<a href="home.html" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
-<div class="py-2">
-<button class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
-Layanan
-<div class="w-5 h-5 flex items-center justify-center">
-<i class="ri-arrow-down-s-line"></i>
-</div>
-</button>
-<div class="pl-4 mt-2 hidden">
-<a href="kursus_mengemudi.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
-<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
-<i class="ri-steering-2-line"></i>
-</div>
-Kursus Mengemudi
-</a>
-<a href="kursus_komputer.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
-<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
-<i class="ri-computer-line"></i>
-</div>
-Kursus Komputer & Akuntansi
-</a>
-<a href="kursus_mekanik.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
-<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
-<i class="ri-tools-line"></i>
-</div>
-Kursus Mekanik Otomotif
-</a>
-</div>
-</div>
-<a href="artikel.html" class="text-gray-800 hover:text-primary font-medium py-2">Artikel</a>
-<a href="lokasi.html" class="text-gray-800 hover:text-primary font-medium py-2">Lokasi</a>
-<a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Hubungi Kami</a>
-</nav>
-</div>
-</div>
+    <!-- Mobile Menu (Hidden by default) -->
+    <div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+        <div class="bg-white h-full w-64 shadow-lg p-5">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-primary font-['Pacifico'] text-2xl">logo</span>
+                <button class="w-8 h-8 flex items-center justify-center">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="home.html" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
+                <div class="py-2">
+                    <button
+                        class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
+                        Layanan
+                        <div class="w-5 h-5 flex items-center justify-center">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="pl-4 mt-2 hidden">
+                        <a href="kursus_mengemudi.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                                <i class="ri-steering-2-line"></i>
+                            </div>
+                            Kursus Mengemudi
+                        </a>
+                        <a href="kursus_komputer.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                                <i class="ri-computer-line"></i>
+                            </div>
+                            Kursus Komputer & Akuntansi
+                        </a>
+                        <a href="kursus_mekanik.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+                            <div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+                                <i class="ri-tools-line"></i>
+                            </div>
+                            Kursus Mekanik Otomotif
+                        </a>
+                    </div>
+                </div>
+                <a href="artikel.html" class="text-gray-800 hover:text-primary font-medium py-2">Artikel</a>
+                <a href="lokasi.html" class="text-gray-800 hover:text-primary font-medium py-2">Lokasi</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium py-2">Hubungi Kami</a>
+            </nav>
+        </div>
+    </div>
 
-<!-- Hero Section -->
-<section class="pt-20 w-full relative">
-<div style="background-image: url('placeholder_bengkel_modern.jpg'); background-position: center; background-size: cover;" class="w-full h-[500px] relative">
-<div class="absolute inset-0 bg-black bg-opacity-50"></div>
-<div class="container mx-auto px-4 h-full flex items-center relative z-10">
-<div class="max-w-2xl">
-<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Menjadi Mekanik Handal & Profesional</h1>
-<p class="text-xl text-white mb-8">Program pelatihan mekanik otomotif komprehensif untuk menguasai perbaikan sepeda motor dan mobil.</p>
-<a href="#daftar" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Daftar Kursus Mekanik</a>
-</div>
-</div>
-</div>
-</section>
+    <!-- Hero Section -->
+    <section class="pt-20 w-full relative">
+        <div style="background-image: url('placeholder_bengkel_modern.jpg'); background-position: center; background-size: cover;"
+            class="w-full h-[500px] relative">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Menjadi Mekanik Handal & Profesional</h1>
+                    <p class="text-xl text-white mb-8">Program pelatihan mekanik otomotif komprehensif untuk menguasai
+                        perbaikan sepeda motor dan mobil.</p>
+                    <a href="#daftar"
+                        class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Daftar
+                        Kursus Mekanik</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Program Overview -->
-<section class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold mb-4">Program Kursus Mekanik Otomotif</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Program kursus mekanik otomotif kami dirancang untuk membekali Anda dengan keterampilan praktis dan teoritis yang dibutuhkan di industri otomotif.</p>
-</div>
+    <!-- Program Overview -->
+    <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Program Kursus Mekanik Otomotif</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Program kursus mekanik otomotif kami dirancang untuk membekali
+                Anda dengan keterampilan praktis dan teoritis yang dibutuhkan di industri otomotif.</p>
+        </div>
 
-<div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
-<div class="p-6 md:p-8">
-<div class="flex flex-col md:flex-row gap-8">
-<div class="md:w-2/3">
-<h3 class="text-2xl font-bold mb-4">Deskripsi Program</h3>
-<p class="text-gray-600 mb-6">Kursus mekanik otomotif LPK Nissan Fortuna menawarkan program pelatihan komprehensif yang mencakup teori dan praktek perbaikan kendaraan. Kami fokus pada pengembangan keterampilan diagnostik dan perbaikan yang efektif dan efisien. Program ini cocok untuk pemula maupun mereka yang ingin meningkatkan keahlian.</p>
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+            <div class="p-6 md:p-8">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4">Deskripsi Program</h3>
+                        <p class="text-gray-600 mb-6">Kursus mekanik otomotif LPK Nissan Fortuna menawarkan program
+                            pelatihan komprehensif yang mencakup teori dan praktek perbaikan kendaraan. Kami fokus pada
+                            pengembangan keterampilan diagnostik dan perbaikan yang efektif dan efisien. Program ini
+                            cocok untuk pemula maupun mereka yang ingin meningkatkan keahlian.</p>
 
-<div class="mb-6">
-<h4 class="text-xl font-bold mb-3">Fokus Materi Pembelajaran:</h4>
-<ul class="space-y-2">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-check-line"></i>
-</div>
-<span class="text-gray-600">Sepeda motor & mobil</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-check-line"></i>
-</div>
-<span class="text-gray-600">Sistem EFI</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-check-line"></i>
-</div>
-<span class="text-gray-600">Praktik mesin terbaru</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-check-line"></i>
-</div>
-<span class="text-gray-600">Special tools</span>
-</li>
-</ul>
-</div>
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold mb-3">Fokus Materi Pembelajaran:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Sepeda motor & mobil</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Sistem EFI</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Praktik mesin terbaru</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Special tools</span>
+                                </li>
+                            </ul>
+                        </div>
 
-<div>
-<h4 class="text-xl font-bold mb-3">Hasil Akhir:</h4>
-<ul class="space-y-2">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-trophy-line"></i>
-</div>
-<span class="text-gray-600">Siap bekerja sebagai mekanik profesional</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-trophy-line"></i>
-</div>
-<span class="text-gray-600">Mampu mendiagnosis dan memperbaiki berbagai jenis kendaraan</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-trophy-line"></i>
-</div>
-<span class="text-gray-600">Memiliki keterampilan yang siap untuk membuka usaha bengkel sendiri</span>
-</li>
-</ul>
-</div>
-</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-3">Hasil Akhir:</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-trophy-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Siap bekerja sebagai mekanik profesional</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-trophy-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Mampu mendiagnosis dan memperbaiki berbagai jenis
+                                        kendaraan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                        <i class="ri-trophy-line"></i>
+                                    </div>
+                                    <span class="text-gray-600">Memiliki keterampilan yang siap untuk membuka usaha
+                                        bengkel sendiri</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-<div class="md:w-1/3">
-<div class="bg-gray-50 rounded-lg p-6">
-<h4 class="text-xl font-bold mb-4">Keunggulan Program</h4>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
-<i class="ri-user-star-line"></i>
-</div>
-<div>
-<h5 class="font-bold">Instruktur Bersertifikat</h5>
-<p class="text-sm text-gray-600">Dilatih oleh instruktur profesional yang berpengalaman di bidang otomotif</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
-<i class="ri-tools-line"></i>
-</div>
-<div>
-<h5 class="font-bold">Fasilitas Bengkel Modern</h5>
-<p class="text-sm text-gray-600">Dilengkapi dengan peralatan dan special tools terbaru</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
-<i class="ri-time-line"></i>
-</div>
-<div>
-<h5 class="font-bold">Jadwal Fleksibel</h5>
-<p class="text-sm text-gray-600">Pilih waktu belajar sesuai dengan kesibukan Anda</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
-<i class="ri-flask-line"></i>
-</div>
-<div>
-<h5 class="font-bold">Fokus pada Praktik Langsung</h5>
-<p class="text-sm text-gray-600">Pembelajaran lebih banyak praktik langsung di bengkel</p>
-</div>
-</li>
-<li class="flex items-start">
-<div class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
-<i class="ri-building-line"></i>
-</div>
-<div>
-<h5 class="font-bold">Kesempatan praktik di bengkel atau workshop sendiri</h5>
-<p class="text-sm text-gray-600">Dapatkan pengalaman langsung di lingkungan kerja nyata</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
+                    <div class="md:w-1/3">
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h4 class="text-xl font-bold mb-4">Keunggulan Program</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                        <i class="ri-user-star-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold">Instruktur Bersertifikat</h5>
+                                        <p class="text-sm text-gray-600">Dilatih oleh instruktur profesional yang
+                                            berpengalaman di bidang otomotif</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                        <i class="ri-tools-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold">Fasilitas Bengkel Modern</h5>
+                                        <p class="text-sm text-gray-600">Dilengkapi dengan peralatan dan special tools
+                                            terbaru</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                        <i class="ri-time-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold">Jadwal Fleksibel</h5>
+                                        <p class="text-sm text-gray-600">Pilih waktu belajar sesuai dengan kesibukan
+                                            Anda</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                        <i class="ri-flask-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold">Fokus pada Praktik Langsung</h5>
+                                        <p class="text-sm text-gray-600">Pembelajaran lebih banyak praktik langsung di
+                                            bengkel</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div
+                                        class="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full mr-3 text-primary">
+                                        <i class="ri-building-line"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold">Kesempatan praktik di bengkel atau workshop sendiri</h5>
+                                        <p class="text-sm text-gray-600">Dapatkan pengalaman langsung di lingkungan
+                                            kerja nyata</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section> 
 
-<!-- Paket & Biaya -->
-<section class="py-16 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold mb-4">Paket & Biaya Kursus Mekanik</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Pilih paket yang sesuai dengan kebutuhan dan tingkat keahlian Anda.</p>
-</div>
+        <!-- Paket & Biaya -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Paket & Biaya Kursus Mekanik</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Pilih paket yang sesuai dengan kebutuhan dan tingkat
+                        keahlian Anda.</p>
+                </div>
 
-<div class="overflow-x-auto mb-12">
-<table class="w-full border-collapse">
-<thead>
-<tr class="bg-gray-100">
-<th class="border px-4 py-3 text-left">Paket</th>
-<th class="border px-4 py-3 text-left">Durasi</th>
-<th class="border px-4 py-3 text-left">Sesi</th>
-<th class="border px-4 py-3 text-left">Harga</th>
-<th class="border px-4 py-3 text-left">Bonus</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="border px-4 py-3 font-medium">Paket Dasar</td>
-<td class="border px-4 py-3">1 bulan</td>
-<td class="border px-4 py-3">12 sesi</td>
-<td class="border px-4 py-3">Rp XXX.XXX</td>
-<td class="border px-4 py-3">Praktek di bengkel mitra</td>
-</tr>
-<tr class="bg-gray-50">
-<td class="border px-4 py-3 font-medium">Paket Menengah</td>
-<td class="border px-4 py-3">2 bulan</td>
-<td class="border px-4 py-3">24 sesi</td>
-<td class="border px-4 py-3">Rp YYY.YYY</td>
-<td class="border px-4 py-3">Praktek di bengkel mitra + Modul Lengkap</td>
-</tr>
-<tr>
-<td class="border px-4 py-3 font-medium">Paket Mahir</td>
-<td class="border px-4 py-3">3 bulan</td>
-<td class="border px-4 py-3">36 sesi</td>
-<td class="border px-4 py-3">Rp ZZZ.ZZZ</td>
-<td class="border px-4 py-3">Praktek di bengkel mitra + Modul Lengkap + Bimbingan Karir</td>
-</tr>
-</tbody>
-</table>
-</div>
+                <div class="overflow-x-auto mb-12">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border px-4 py-3 text-left">Paket</th>
+                                <th class="border px-4 py-3 text-left">Durasi</th>
+                                <th class="border px-4 py-3 text-left">Sesi</th>
+                                <th class="border px-4 py-3 text-left">Harga</th>
+                                <th class="border px-4 py-3 text-left">Bonus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border px-4 py-3 font-medium">Paket Dasar</td>
+                                <td class="border px-4 py-3">1 bulan</td>
+                                <td class="border px-4 py-3">12 sesi</td>
+                                <td class="border px-4 py-3">Rp XXX.XXX</td>
+                                <td class="border px-4 py-3">Praktek di bengkel mitra</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border px-4 py-3 font-medium">Paket Menengah</td>
+                                <td class="border px-4 py-3">2 bulan</td>
+                                <td class="border px-4 py-3">24 sesi</td>
+                                <td class="border px-4 py-3">Rp YYY.YYY</td>
+                                <td class="border px-4 py-3">Praktek di bengkel mitra + Modul Lengkap</td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-3 font-medium">Paket Mahir</td>
+                                <td class="border px-4 py-3">3 bulan</td>
+                                <td class="border px-4 py-3">36 sesi</td>
+                                <td class="border px-4 py-3">Rp ZZZ.ZZZ</td>
+                                <td class="border px-4 py-3">Praktek di bengkel mitra + Modul Lengkap + Bimbingan Karir
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-<div class="mt-8 bg-gray-50 p-6 rounded-lg">
-<h4 class="text-xl font-bold mb-4">Informasi Tambahan:</h4>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-information-line"></i>
-</div>
-<span class="text-gray-600">Biaya sudah termasuk bahan praktik dan penggunaan alat</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-information-line"></i>
-</div>
-<span class="text-gray-600">Tersedia pembayaran cicilan</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-information-line"></i>
-</div>
-<span class="text-gray-600">Diskon khusus untuk pendaftaran grup</span>
-</li>
-</ul>
-</div>
-</div>
-</section>
+                <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold mb-4">Informasi Tambahan:</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-information-line"></i>
+                            </div>
+                            <span class="text-gray-600">Biaya sudah termasuk bahan praktik dan penggunaan alat</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-information-line"></i>
+                            </div>
+                            <span class="text-gray-600">Tersedia pembayaran cicilan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                <i class="ri-information-line"></i>
+                            </div>
+                            <span class="text-gray-600">Diskon khusus untuk pendaftaran grup</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<!-- Fasilitas -->
-<section class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold mb-4">Fasilitas Pendukung</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Kami menyediakan fasilitas lengkap untuk mendukung proses belajar Anda.</p>
-</div>
+        <!-- Fasilitas -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Fasilitas Pendukung</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Kami menyediakan fasilitas lengkap untuk mendukung proses
+                        belajar Anda.</p>
+                </div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div style="background-image: url('placeholder_bengkel_praktik.jpg'); background-position: center; background-size: cover;" class="h-56 bg-center bg-cover"></div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Bengkel Praktik Modern</h3>
-<p class="text-gray-600 mb-4">Area praktik yang luas dan dilengkapi dengan berbagai jenis kendaraan untuk latihan.</p>
-</div>
-</div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div style="background-image: url('placeholder_bengkel_praktik.jpg'); background-position: center; background-size: cover;"
+                            class="h-56 bg-center bg-cover"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Bengkel Praktik Modern</h3>
+                            <p class="text-gray-600 mb-4">Area praktik yang luas dan dilengkapi dengan berbagai jenis
+                                kendaraan untuk latihan.</p>
+                        </div>
+                    </div>
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div style="background-image: url('placeholder_alat_ukur.jpg'); background-position: center; background-size: cover;" class="h-56 bg-center bg-cover"></div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Alat Ukur & Special Tools</h3>
-<p class="text-gray-600 mb-4">Penggunaan alat ukur presisi dan special tools sesuai standar industri.</p>
-</div>
-</div>
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div style="background-image: url('placeholder_alat_ukur.jpg'); background-position: center; background-size: cover;"
+                            class="h-56 bg-center bg-cover"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Alat Ukur & Special Tools</h3>
+                            <p class="text-gray-600 mb-4">Penggunaan alat ukur presisi dan special tools sesuai standar
+                                industri.</p>
+                        </div>
+                    </div>
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div style="background-image: url('placeholder_ruang_teori.jpg'); background-position: center; background-size: cover;" class="h-56 bg-center bg-cover"></div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Ruang Kelas Teori Nyaman</h3>
-<p class="text-gray-600 mb-4">Ruang kelas ber-AC untuk pembelajaran teori dasar otomotif dan sistem kendaraan.</p>
-</div>
-</div>
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div style="background-image: url('placeholder_ruang_teori.jpg'); background-position: center; background-size: cover;"
+                            class="h-56 bg-center bg-cover"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ruang Kelas Teori Nyaman</h3>
+                            <p class="text-gray-600 mb-4">Ruang kelas ber-AC untuk pembelajaran teori dasar otomotif dan
+                                sistem kendaraan.</p>
+                        </div>
+                    </div>
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-<div style="background-image: url('placeholder_unit_kendaraan.jpg'); background-position: center; background-size: cover;" class="h-56 bg-center bg-cover"></div>
-<div class="p-6">
-<h3 class="text-xl font-bold mb-2">Unit Kendaraan Latihan</h3>
-<p class="text-gray-600 mb-4">Tersedia unit sepeda motor dan mobil dengan berbagai teknologi mesin.</p>
-</div>
-</div>
-</div>
-</section>
+                    <div
+                        class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div style="background-image: url('placeholder_unit_kendaraan.jpg'); background-position: center; background-size: cover;"
+                            class="h-56 bg-center bg-cover"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Unit Kendaraan Latihan</h3>
+                            <p class="text-gray-600 mb-4">Tersedia unit sepeda motor dan mobil dengan berbagai teknologi
+                                mesin.</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
 
-<!-- Testimoni -->
-<section class="py-16 bg-white">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold mb-4">Testimoni Alumni</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Pengalaman dari alumni kursus mekanik kami yang telah sukses berkarir di bidang otomotif.</p>
-</div>
+        <!-- Testimoni -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Testimoni Alumni</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Pengalaman dari alumni kursus mekanik kami yang telah
+                        sukses berkarir di bidang otomotif.</p>
+                </div>
 
-<div class="grid md:grid-cols-3 gap-8">
-<div class="bg-gray-50 p-6 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-2">
-<div class="flex items-center mb-4">
-<div class="text-yellow-400 flex">
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-</div>
-</div>
-<p class="text-gray-600 mb-6">"Kursus mekanik di LPK Nissan Fortuna sangat praktis. Saya langsung bisa mempraktikkan teori yang diajarkan. Instrukturnya sangat kompeten dan membimbing dengan sabar. Sekarang saya sudah buka bengkel sendiri!"</p>
-<div class="flex items-center">
-<div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
-<div>
-<h4 class="font-bold">Andi Pratama</h4>
-<p class="text-sm text-gray-500">Pemilik Bengkel</p>
-</div>
-</div>
-</div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div
+                        class="bg-gray-50 p-6 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-2">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"Kursus mekanik di LPK Nissan Fortuna sangat praktis. Saya
+                            langsung bisa mempraktikkan teori yang diajarkan. Instrukturnya sangat kompeten dan
+                            membimbing dengan sabar. Sekarang saya sudah buka bengkel sendiri!"</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                            <div>
+                                <h4 class="font-bold">Andi Pratama</h4>
+                                <p class="text-sm text-gray-500">Pemilik Bengkel</p>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="bg-gray-50 p-6 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-2">
-<div class="flex items-center mb-4">
-<div class="text-yellow-400 flex">
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-half-fill"></i>
-</div>
-</div>
-<p class="text-gray-600 mb-6">"Saya belajar banyak tentang sistem EFI dan mesin terbaru di sini. Fasilitasnya lengkap dan modern. Bonus praktik di bengkel mitra sangat membantu saya mendapatkan pengalaman kerja nyata sebelum lulus."</p>
-<div class="flex items-center">
-<div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
-<div>
-<h4 class="font-bold">Bambang Wijaya</h4>
-<p class="text-sm text-gray-500">Mekanik di Dealer Resmi</p>
-</div>
-</div>
-</div>
+                    <div
+                        class="bg-gray-50 p-6 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-2">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"Saya belajar banyak tentang sistem EFI dan mesin terbaru di sini.
+                            Fasilitasnya lengkap dan modern. Bonus praktik di bengkel mitra sangat membantu saya
+                            mendapatkan pengalaman kerja nyata sebelum lulus."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                            <div>
+                                <h4 class="font-bold">Bambang Wijaya</h4>
+                                <p class="text-sm text-gray-500">Mekanik di Dealer Resmi</p>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="bg-gray-50 p-6 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-2">
-<div class="flex items-center mb-4">
-<div class="text-yellow-400 flex">
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-<i class="ri-star-fill"></i>
-</div>
-</div>
-<p class="text-gray-600 mb-6">"LPK Nissan Fortuna memberikan pondasi yang kuat untuk karir saya sebagai mekanik. Materi yang diajarkan relevan dan mudah dipahami. Saya sangat merekomendasikan kursus ini bagi siapa saja yang ingin jadi mekanik handal."</p>
-<div class="flex items-center">
-<div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
-<div>
-<h4 class="font-bold">Citra Lestari</h4>
-<p class="text-sm text-gray-500">Mekanik di Bengkel Umum</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+                    <div
+                        class="bg-gray-50 p-6 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-2">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 flex">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">"LPK Nissan Fortuna memberikan pondasi yang kuat untuk karir saya
+                            sebagai mekanik. Materi yang diajarkan relevan dan mudah dipahami. Saya sangat
+                            merekomendasikan kursus ini bagi siapa saja yang ingin jadi mekanik handal."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-300 mr-4"></div>
+                            <div>
+                                <h4 class="font-bold">Citra Lestari</h4>
+                                <p class="text-sm text-gray-500">Mekanik di Bengkel Umum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
 
-<!-- Form Pendaftaran -->
-<section id="daftar" class="py-16 bg-gray-50">
-<div class="container mx-auto px-4">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold mb-4">Formulir Pendaftaran Kursus Mekanik</h2>
-<p class="text-gray-600 max-w-2xl mx-auto">Isi formulir di bawah ini untuk mendaftar program Kursus Mekanik Otomotif. Tim kami akan menghubungi Anda segera.</p>
-</div>
+        <!-- Form Pendaftaran -->
+        <section id="daftar" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Formulir Pendaftaran Kursus Mekanik</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Isi formulir di bawah ini untuk mendaftar program Kursus
+                        Mekanik Otomotif. Tim kami akan menghubungi Anda segera.</p>
+                </div>
 
-<div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8">
-<div>
+                <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-8">
+                    <div>
 
-<div class="p-8">
-<form>
-<div class="grid md:grid-cols-2 gap-6 mb-6">
-<div>
-<label for="nama" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
-<input type="text" id="nama" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan nama lengkap">
-</div>
-<div>
-<label for="telepon" class="block text-gray-700 font-medium mb-2">Nomor WhatsApp</label>
-<input type="tel" id="telepon" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan nomor WhatsApp">
-</div>
-</div>
+                        <div class="p-8">
+                            <form>
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <label for="nama" class="block text-gray-700 font-medium mb-2">Nama
+                                            Lengkap</label>
+                                        <input type="text" id="nama"
+                                            class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
+                                            placeholder="Masukkan nama lengkap">
+                                    </div>
+                                    <div>
+                                        <label for="telepon" class="block text-gray-700 font-medium mb-2">Nomor
+                                            WhatsApp</label>
+                                        <input type="tel" id="telepon"
+                                            class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
+                                            placeholder="Masukkan nomor WhatsApp">
+                                    </div>
+                                </div>
 
-<div class="mb-6">
-<label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan alamat email">
-</div>
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
+                                        placeholder="Masukkan alamat email">
+                                </div>
 
-<div class="mb-6">
-<label for="paket" class="block text-gray-700 font-medium mb-2">Paket Yang Diminati</label>
-<select id="paket" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary pr-8">
-<option value="">Pilih Paket</option>
-<option value="dasar">Paket Dasar (1 Bulan)</option>
-<option value="menengah">Paket Menengah (2 Bulan)</option>
-<option value="mahir">Paket Mahir (3 Bulan)</option>
-</select>
-</div>
+                                <div class="mb-6">
+                                    <label for="paket" class="block text-gray-700 font-medium mb-2">Paket Yang
+                                        Diminati</label>
+                                    <select id="paket"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary pr-8">
+                                        <option value="">Pilih Paket</option>
+                                        <option value="dasar">Paket Dasar (1 Bulan)</option>
+                                        <option value="menengah">Paket Menengah (2 Bulan)</option>
+                                        <option value="mahir">Paket Mahir (3 Bulan)</option>
+                                    </select>
+                                </div>
 
-<div class="mb-6">
-<label for="pesan" class="block text-gray-700 font-medium mb-2">Pesan (Opsional)</label>
-<textarea id="pesan" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary" placeholder="Masukkan pertanyaan atau pesan tambahan"></textarea>
-</div>
+                                <div class="mb-6">
+                                    <label for="pesan" class="block text-gray-700 font-medium mb-2">Pesan
+                                        (Opsional)</label>
+                                    <textarea id="pesan" rows="4"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded focus:border-primary"
+                                        placeholder="Masukkan pertanyaan atau pesan tambahan"></textarea>
+                                </div>
 
-<div class="mb-6">
-<label class="flex items-center">
-<input type="checkbox" class="custom-checkbox mr-2">
-<span class="text-sm text-gray-600">Saya setuju dengan syarat dan ketentuan yang berlaku</span>
-</label>
-</div>
+                                <div class="mb-6">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="custom-checkbox mr-2">
+                                        <span class="text-sm text-gray-600">Saya setuju dengan syarat dan ketentuan yang
+                                            berlaku</span>
+                                    </label>
+                                </div>
 
-<button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Daftar Sekarang</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</section>
+                                <button type="submit"
+                                    class="w-full bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300 whitespace-nowrap">Daftar
+                                    Sekarang</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- CTA Section -->
-<section class="py-16 bg-primary">
-<div class="container mx-auto px-4 text-center">
-<h2 class="text-3xl font-bold text-white mb-6">Siap Menjadi Mekanik Profesional?</h2>
-<p class="text-white text-lg mb-8 max-w-2xl mx-auto">Daftar sekarang dan mulai karir Anda di bidang otomotif!</p>
-<div class="flex flex-wrap justify-center gap-4">
-<a href="#daftar" class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition duration-300 whitespace-nowrap">Daftar Sekarang</a>
-<a href="https://wa.me/6281234567890" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition duration-300 whitespace-nowrap flex items-center justify-center">
-<div class="w-5 h-5 flex items-center justify-center mr-2">
-<i class="ri-whatsapp-line"></i>
-</div>
-Hubungi via WhatsApp
-</a>
-</div>
-</div>
-</section>
+        <!-- CTA Section -->
+        <section class="py-16 bg-primary">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-white mb-6">Siap Menjadi Mekanik Profesional?</h2>
+                <p class="text-white text-lg mb-8 max-w-2xl mx-auto">Daftar sekarang dan mulai karir Anda di bidang
+                    otomotif!</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#daftar"
+                        class="bg-white text-primary px-8 py-3 rounded-button font-medium hover:bg-gray-100 transition duration-300 whitespace-nowrap">Daftar
+                        Sekarang</a>
+                    <a href="https://wa.me/6281234567890"
+                        class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition duration-300 whitespace-nowrap flex items-center justify-center">
+                        <div class="w-5 h-5 flex items-center justify-center mr-2">
+                            <i class="ri-whatsapp-line"></i>
+                        </div>
+                        Hubungi via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-white pt-16 pb-8">
-<div class="container mx-auto px-4">
-<div class="grid md:grid-cols-4 gap-8 mb-12">
-<!-- About -->
-<div>
-<a href="#" class="inline-block mb-6">
-<span class="text-white font-['Pacifico'] text-2xl">logo</span>
-</a>
-<p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga terjangkau.</p>
-<div class="flex space-x-4">
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
-<i class="ri-facebook-fill"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
-<i class="ri-instagram-line"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
-<i class="ri-youtube-line"></i>
-</a>
-</div>
-</div>
-<!-- Quick Links -->
-<div>
-<h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
-<ul class="space-y-3">
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Artikel</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hubungi Kami</a></li>
-</ul>
-</div>
-<!-- Layanan -->
-<div>
-<h3 class="text-xl font-bold mb-6">Layanan</h3>
-<ul class="space-y-3">
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mengemudi</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Komputer & Akuntansi</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus Mekanik Otomotif</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Jadwal Kursus</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biaya Kursus</a></li>
-</ul>
-</div>
-<!-- Contact -->
-<div>
-<h3 class="text-xl font-bold mb-6">Kontak</h3>
-<ul class="space-y-3">
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-map-pin-line"></i>
-</div>
-<span class="text-gray-400">Jl. Raya Utama No. 123, Kota Jakarta, Indonesia 12345</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-phone-line"></i>
-</div>
-<span class="text-gray-400">+62 21 1234 5678</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-mail-line"></i>
-</div>
-<span class="text-gray-400">info@nissanfortuna.co.id</span>
-</li>
-<li class="flex items-start">
-<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
-<i class="ri-time-line"></i>
-</div>
-<span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-800 pt-8">
-<div class="flex flex-col md:flex-row justify-between items-center">
-<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta Dilindungi.</p>
-<div class="flex space-x-6">
-<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan Privasi</a>
-<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat & Ketentuan</a>
-</div>
-</div>
-</div>
-</div>
-</footer>
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white pt-16 pb-8">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-4 gap-8 mb-12">
+                    <!-- About -->
+                    <div>
+                        <a href="#" class="inline-block mb-6">
+                            <span class="text-white font-['Pacifico'] text-2xl">logo</span>
+                        </a>
+                        <p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan
+                            terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga
+                            terjangkau.</p>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-youtube-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tentang
+                                    Kami</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Layanan</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Artikel</a>
+                            </li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Hubungi
+                                    Kami</a></li>
+                        </ul>
+                    </div>
+                    <!-- Layanan -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Layanan</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus
+                                    Mengemudi</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus
+                                    Komputer & Akuntansi</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Kursus
+                                    Mekanik Otomotif</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Jadwal
+                                    Kursus</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biaya
+                                    Kursus</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Kontak</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+                                <span class="text-gray-400">Jl. Raya Utama No. 123, Kota Jakarta, Indonesia 12345</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                                <span class="text-gray-400">+62 21 1234 5678</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-mail-line"></i>
+                                </div>
+                                <span class="text-gray-400">info@nissanfortuna.co.id</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta
+                            Dilindungi.</p>
+                        <div class="flex space-x-6">
+                            <a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan
+                                Privasi</a>
+                            <a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat &
+                                Ketentuan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
-<i class="ri-whatsapp-line text-white text-2xl"></i>
-</a>
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/6281234567890"
+            class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+            <i class="ri-whatsapp-line text-white text-2xl"></i>
+        </a>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-// Mobile menu toggle
-const menuButton = document.querySelector('button.md\\:hidden');
-const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
-const closeButton = document.querySelector('.ri-close-line').parentElement;
-if (menuButton && mobileMenu && closeButton) {
-menuButton.addEventListener('click', function() {
-mobileMenu.classList.remove('hidden');
-});
-closeButton.addEventListener('click', function() {
-mobileMenu.classList.add('hidden');
-});
-}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Mobile menu toggle
+                const menuButton = document.querySelector('button.md\\:hidden');
+                const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+                const closeButton = document.querySelector('.ri-close-line').parentElement;
+                if (menuButton && mobileMenu && closeButton) {
+                    menuButton.addEventListener('click', function () {
+                        mobileMenu.classList.remove('hidden');
+                    });
+                    closeButton.addEventListener('click', function () {
+                        mobileMenu.classList.add('hidden');
+                    });
+                }
 
-// Mobile submenu toggle
-const mobileSubmenuButton = document.querySelector('.py-2 button');
-const mobileSubmenu = document.querySelector('.py-2 .hidden');
-if (mobileSubmenuButton && mobileSubmenu) {
-mobileSubmenuButton.addEventListener('click', function() {
-mobileSubmenu.classList.toggle('hidden');
-});
-}
-});
-</script>
+                // Mobile submenu toggle
+                const mobileSubmenuButton = document.querySelector('.py-2 button');
+                const mobileSubmenu = document.querySelector('.py-2 .hidden');
+                if (mobileSubmenuButton && mobileSubmenu) {
+                    mobileSubmenuButton.addEventListener('click', function () {
+                        mobileSubmenu.classList.toggle('hidden');
+                    });
+                }
+            });
+        </script>
 </body>
+
 </html>
