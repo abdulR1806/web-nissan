@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page Not Found - LPK Nissan Fortuna</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e31d1a',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 50;
+}
+.dropdown-container:hover .dropdown {
+display: block;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -2px;
+left: 0;
+background-color: #e31d1a;
+transition: width 0.3s;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.whatsapp-button {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 100;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #e31d1a;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="home.html" class="flex items-center">
+<img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-10">
+</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a href="home.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+<div class="dropdown-container relative">
+<button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
+Layanan
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
+<a href="kursus_mengemudi.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-steering-2-line"></i>
+</div>
+Kursus Mengemudi
+</a>
+<a href="kursus_komputer.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-computer-line"></i>
+</div>
+Kursus Komputer & Akuntansi
+</a>
+<a href="kursus_mekanik.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line"></i>
+</div>
+Kursus Mekanik Otomotif
+</a>
+</div>
+</div>
+<a href="artikel.html" class="nav-link text-gray-800 hover:text-primary font-medium">Artikel</a>
+<a href="lokasi.html" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
+<a href="lokasi.html#kontak" class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300">Hubungi Kami</a>
+</nav>
+<button id="mobile-menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</div>
+</header>
+<!-- Mobile Menu (Hidden by default) -->
+<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" id="mobile-menu-overlay">
+<div class="bg-white h-full w-64 shadow-lg p-5">
+<div class="flex justify-between items-center mb-6">
+<a href="home.html">
+<img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-8">
+</a>
+</div>
+<nav class="flex flex-col space-y-4">
+<a href="home.html" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
+<div class="py-2">
+<button class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
+Layanan
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="pl-4 mt-2 hidden">
+<a href="kursus_mengemudi.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-steering-2-line"></i>
+</div>
+Kursus Mengemudi
+</a>
+<a href="kursus_komputer.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-computer-line"></i>
+</div>
+Kursus Komputer & Akuntansi
+</a>
+<a href="kursus_mekanik.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line"></i>
+</div>
+Kursus Mekanik Otomotif
+</a>
+</div>
+</div>
+<a href="artikel.html" class="text-gray-800 hover:text-primary font-medium py-2">Artikel</a>
+<a href="lokasi.html" class="text-gray-800 hover:text-primary font-medium py-2">Lokasi</a>
+<a href="lokasi.html#kontak" class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 inline-block mt-2">Hubungi Kami</a>
+</nav>
+</div>
+</div>
+
+<!-- 404 Content -->
+<section class="flex items-center justify-center min-h-screen bg-gray-50 py-20">
+<div class="text-center">
+<h1 class="text-6xl font-bold text-primary mb-4">404</h1>
+<h2 class="text-3xl font-bold text-gray-800 mb-6">Halaman Tidak Ditemukan</h2>
+<p class="text-gray-600 text-lg mb-8">Maaf, halaman yang Anda cari tidak dapat ditemukan.</p>
+<a href="home.html" class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-700 transition duration-300">Kembali ke Beranda</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-8 mb-12">
+<!-- About -->
+<div>
+<a href="home.html" class="inline-block mb-6">
+<img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-10">
+</a>
+<p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga terjangkau.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+<ul class="space-y-3">
+<li><a href="home.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+<li><a href="home.html#tentang" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+<li><a href="home.html#layanan" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+<li><a href="artikel.html" class="text-gray-400 hover:text-white transition duration-300">Artikel</a></li>
+<li><a href="lokasi.html#kontak" class="text-gray-400 hover:text-white transition duration-300">Hubungi Kami</a></li>
+</ul>
+</div>
+<!-- Layanan -->
+<div>
+<h3 class="text-xl font-bold mb-6">Layanan</h3>
+<ul class="space-y-3">
+<li><a href="kursus_mengemudi.html" class="text-gray-400 hover:text-white transition duration-300">Kursus Mengemudi</a></li>
+<li><a href="kursus_komputer.html" class="text-gray-400 hover:text-white transition duration-300">Kursus Komputer & Akuntansi</a></li>
+<li><a href="kursus_mekanik.html" class="text-gray-400 hover:text-white transition duration-300">Kursus Mekanik Otomotif</a></li>
+<li><a href="kursus_mengemudi.html#content-jadwal" class="text-gray-400 hover:text-white transition duration-300">Jadwal Kursus</a></li>
+<li><a href="kursus_mengemudi.html#content-biaya" class="text-gray-400 hover:text-white transition duration-300">Biaya Kursus</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div>
+<h3 class="text-xl font-bold mb-6">Kontak</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">Jln HOS Cokroaminoto 81 (Mlatinorowito Gang 8) Kudus, Jawa Tengah</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">Hotline: (0291) 441879</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-printer-line"></i>
+</div>
+<span class="text-gray-400">Fax: (0291) 441879</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-whatsapp-line"></i>
+</div>
+<span class="text-gray-400">Whatsapp: 0856-4070-9809</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">Email: nissanfortunakursus@gmail.com</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta Dilindungi.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan Privasi</a>
+<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat & Ketentuan</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+<i class="ri-whatsapp-line text-white text-2xl"></i>
+</a>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuButton = document.getElementById('mobile-menu-toggle');
+const menuIcon = menuButton.querySelector('i');
+const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    // Change icon back to menu when menu is closed
+    menuIcon.className = 'ri-menu-line text-2xl';
+}
+
+function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    // Change icon to close when menu is opened
+    menuIcon.className = 'ri-close-line text-2xl';
+}
+
+if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('hidden')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+
+    // Close menu when clicking on the overlay (outside the menu)
+    mobileMenuOverlay.addEventListener('click', function(e) {
+        // Only close if clicking directly on the overlay, not on the menu itself
+        if (e.target === mobileMenuOverlay) {
+            closeMenu();
+        }
+    });
+}
+
+// Mobile submenu toggle
+const mobileSubmenuButton = document.querySelector('.py-2 button');
+const mobileSubmenu = document.querySelector('.py-2 .hidden');
+if (mobileSubmenuButton && mobileSubmenu) {
+    mobileSubmenuButton.addEventListener('click', function() {
+        mobileSubmenu.classList.toggle('hidden');
+    });
+}
+});
+</script>
+</body>
+</html>
