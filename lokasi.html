@@ -614,33 +614,33 @@ input:focus, textarea:focus, select:focus {
 </footer>
 
 <!-- WhatsApp Button -->
-<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+<a href="https://wa.me/6285640709809" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
     <i class="ri-whatsapp-line text-white text-2xl"></i>
 </a>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
-    const menuButton = document.getElementById("mobile-menu-toggle");
-    const menuIcon = menuButton.querySelector("i");
-    const mobileMenu = document.querySelector(".hidden.fixed.inset-0");
-    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+    const menuButton = document.getElementById('mobile-menu-toggle');
+    const menuIcon = menuButton.querySelector('i');
+    const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
     function closeMenu() {
-        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.add('hidden');
         // Change icon back to menu when menu is closed
-        menuIcon.className = "ri-menu-line text-2xl";
+        menuIcon.className = 'ri-menu-line text-2xl';
     }
 
     function openMenu() {
-        mobileMenu.classList.remove("hidden");
+        mobileMenu.classList.remove('hidden');
         // Change icon to close when menu is opened
-        menuIcon.className = "ri-close-line text-2xl";
+        menuIcon.className = 'ri-close-line text-2xl';
     }
 
     if (menuButton && mobileMenu) {
-        menuButton.addEventListener("click", function() {
-            if (mobileMenu.classList.contains("hidden")) {
+        menuButton.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
                 openMenu();
             } else {
                 closeMenu();
@@ -648,7 +648,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close menu when clicking on the overlay (outside the menu)
-        mobileMenuOverlay.addEventListener("click", function(e) {
+        mobileMenuOverlay.addEventListener('click', function(e) {
             // Only close if clicking directly on the overlay, not on the menu itself
             if (e.target === mobileMenuOverlay) {
                 closeMenu();
@@ -659,35 +659,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile submenu toggle
     const mobileSubmenuButton = document.querySelector('.py-2 button');
     const mobileSubmenu = document.querySelector('.py-2 .hidden');
-
     if (mobileSubmenuButton && mobileSubmenu) {
         mobileSubmenuButton.addEventListener('click', function() {
             mobileSubmenu.classList.toggle('hidden');
-        });
-    }
-
-    // Contact form submission
-    const contactForm = document.getElementById('contact-form');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const branch = document.getElementById('branch').value;
-            const message = document.getElementById('message').value;
-
-            if (!name || !email || !phone || !branch || !message) {
-                alert('Mohon lengkapi semua field yang diperlukan.');
-                return;
-            }
-
-            // Simulate form submission
-            alert('Terima kasih! Pesan Anda telah terkirim. Tim kami akan segera menghubungi Anda.');
-            contactForm.reset();
         });
     }
 
@@ -711,6 +685,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // WhatsApp form submission handler
+    const whatsappForm = document.getElementById('contact-form');
+
+    if (whatsappForm) {
+        whatsappForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const branch = document.getElementById('branch').value;
+            const message = document.getElementById('message').value;
+
+            // Basic validation
+            if (!name || !email || !phone || !branch || !message) {
+                alert('Mohon lengkapi semua field yang diperlukan.');
+                return;
+            }
+
+            const whatsappMessage = `Halo, saya ingin bertanya tapi perkenalkan terlebih dahulu :\n\nNama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nCabang yang diminati: ${branch}\nPesan: ${message}`;
+
+            const whatsappUrl = `https://wa.me/6285640709809?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappUrl, '_blank');
+
+            // Optional: Clear the form after submission
+            whatsappForm.reset();
+        });
+    }
 });
 </script>
 </body>
