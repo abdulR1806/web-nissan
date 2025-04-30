@@ -129,22 +129,19 @@ Kursus Mekanik Otomotif
 <a href="lokasi.html" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
 <a href="lokasi.html#kontak" class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300">Hubungi Kami</a>
 </nav>
-<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<button id="mobile-menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center">
 <i class="ri-menu-line text-2xl"></i>
 </button>
 </div>
 </header>
 
 <!-- Mobile Menu (Hidden by default) -->
-<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" id="mobile-menu-overlay">
 <div class="bg-white h-full w-64 shadow-lg p-5">
 <div class="flex justify-between items-center mb-6">
 <a href="home.html">
 <img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-8">
 </a>
-<button class="w-8 h-8 flex items-center justify-center">
-<i class="ri-close-line text-2xl"></i>
-</button>
 </div>
 <nav class="flex flex-col space-y-4">
 <a href="home.html" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
@@ -996,17 +993,40 @@ Hubungi via WhatsApp
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-// Mobile menu toggle
-const menuButton = document.querySelector('button.md\\:hidden');
-const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
-const closeButton = document.querySelector('.ri-close-line').parentElement;
-if (menuButton && mobileMenu && closeButton) {
-menuButton.addEventListener('click', function() {
-mobileMenu.classList.remove('hidden');
-});
-closeButton.addEventListener('click', function() {
-mobileMenu.classList.add('hidden');
-});
+    // Mobile menu toggle
+    const menuButton = document.getElementById('mobile-menu-toggle');
+    const menuIcon = menuButton.querySelector('i');
+    const mobileMenu = document.querySelector(".hidden.fixed.inset-0");
+    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+
+    function closeMenu() {
+        mobileMenu.classList.add("hidden");
+        // Change icon back to menu when menu is closed
+        menuIcon.className = "ri-menu-line text-2xl";
+    }
+
+    function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        // Change icon to close when menu is opened
+        menuIcon.className = "ri-close-line text-2xl";
+    }
+
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener("click", function() {
+            if (mobileMenu.classList.contains("hidden")) {
+                openMenu();
+            } else {
+                closeMenu();
+            }
+        });
+
+        // Close menu when clicking on the overlay (outside the menu)
+        mobileMenuOverlay.addEventListener("click", function(e) {
+            // Only close if clicking directly on the overlay, not on the menu itself
+            if (e.target === mobileMenuOverlay) {
+                closeMenu();
+            }
+        });
 }
 
 // Mobile submenu toggle
