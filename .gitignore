@@ -1,0 +1,10 @@
+# Ignore all Python files
+*.py
+
+# Common Python-related files and directories
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
