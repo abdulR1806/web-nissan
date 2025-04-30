@@ -10,7 +10,7 @@ output_dir = "readdy_images"
 os.makedirs(output_dir, exist_ok=True)
 
 # Read the HTML file
-with open("home.html", "r", encoding="utf-8") as f:
+with open("kursus_mengemudi.html", "r", encoding="utf-8") as f:
     html_content = f.read()
 
 # Find all image URLs using regex
@@ -23,11 +23,6 @@ image_urls.extend(img_src_urls)
 
 # Filter to only include readdy.ai URLs
 readdy_urls = [url for url in image_urls if "readdy.ai" in url]
-
-# Add the URL from the selected code that might have been replaced in the file
-additional_url = "https://readdy.ai/api/search-image?query=professional%20driving%20lesson%20in%20Indonesia%2C%20instructor%20and%20student%20in%20car%2C%20modern%20driving%20school%2C%20clear%20view%20of%20steering%20wheel%20and%20dashboard%2C%20professional%20photography&width=600&height=400&seq=2&orientation=landscape"
-if additional_url not in readdy_urls:
-    readdy_urls.append(additional_url)
 
 print(f"Found {len(readdy_urls)} Readdy.ai image URLs")
 
