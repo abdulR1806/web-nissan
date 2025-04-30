@@ -10,7 +10,7 @@ output_dir = "readdy_images"
 os.makedirs(output_dir, exist_ok=True)
 
 # Read the HTML file
-with open("artikel.html", "r", encoding="utf-8") as f:
+with open("lokasi.html", "r", encoding="utf-8") as f:
     html_content = f.read()
 
 # Find all image URLs using regex

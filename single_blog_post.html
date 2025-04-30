@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips Mengemudi Aman untuk Pemula di Jalan Raya - LPK Nissan Fortuna</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#e31d1a',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 50;
+}
+.dropdown-container:hover .dropdown {
+display: block;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -2px;
+left: 0;
+background-color: #e31d1a;
+transition: width 0.3s;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.whatsapp-button {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 100;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #e31d1a;
+}
+.article-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.pagination-item {
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.3s;
+}
+.pagination-item.active {
+background-color: #e31d1a;
+color: white;
+}
+.pagination-item:hover:not(.active) {
+background-color: #f3f4f6;
+}
+</style>
+</head>
+<body class="bg-white pt-20">
+<!-- Header -->
+<header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="home.html" class="flex items-center">
+<img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-10">
+</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a href="home.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+<div class="dropdown-container relative">
+<button class="nav-link flex items-center text-gray-800 hover:text-primary font-medium">
+Layanan
+<div class="w-5 h-5 flex items-center justify-center ml-1">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="dropdown bg-white shadow-lg rounded-md w-64 py-2">
+<a href="kursus_mengemudi.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-steering-2-line"></i>
+</div>
+Kursus Mengemudi
+</a>
+<a href="kursus_komputer.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-computer-line"></i>
+</div>
+Kursus Komputer & Akuntansi
+</a>
+<a href="kursus_mekanik.html" class="flex items-center px-4 py-2 hover:bg-red-100 text-gray-800">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line"></i>
+</div>
+Kursus Mekanik Otomotif
+</a>
+</div>
+</div>
+<a href="artikel.html" class="nav-link text-gray-800 hover:text-primary font-medium">Artikel</a>
+<a href="lokasi.html" class="nav-link text-gray-800 hover:text-primary font-medium">Lokasi</a>
+<a href="lokasi.html#kontak" class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300">Hubungi Kami</a>
+</nav>
+<button id="mobile-menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-2xl"></i>
+</button>
+</div>
+</header>
+<!-- Mobile Menu (Hidden by default) -->
+<div class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" id="mobile-menu-overlay">
+<div class="bg-white h-full w-64 shadow-lg p-5">
+<div class="flex justify-between items-center mb-6">
+<a href="home.html">
+<img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-8">
+</a>
+</div>
+<nav class="flex flex-col space-y-4">
+<a href="home.html" class="text-gray-800 hover:text-primary font-medium py-2">Home</a>
+<div class="py-2">
+<button class="flex items-center justify-between w-full text-gray-800 hover:text-primary font-medium">
+Layanan
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="pl-4 mt-2 hidden">
+<a href="kursus_mengemudi.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-steering-2-line"></i>
+</div>
+Kursus Mengemudi
+</a>
+<a href="kursus_komputer.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-computer-line"></i>
+</div>
+Kursus Komputer & Akuntansi
+</a>
+<a href="kursus_mekanik.html" class="flex items-center py-2 text-gray-800 hover:text-primary">
+<div class="w-6 h-6 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line"></i>
+</div>
+Kursus Mekanik Otomotif
+</a>
+</div>
+</div>
+<a href="artikel.html" class="text-gray-800 hover:text-primary font-medium py-2">Artikel</a>
+<a href="lokasi.html" class="text-gray-800 hover:text-primary font-medium py-2">Lokasi</a>
+<a href="lokasi.html#kontak" class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-700 transition duration-300 inline-block mt-2">Hubungi Kami</a>
+</nav>
+</div>
+</div>
+
+<main class="py-12 bg-white">
+<div class="container mx-auto px-4 max-w-3xl">
+<img src="readdy_images/professional_driving_instructo_11.jpg" alt="Tips Mengemudi Aman" class="w-full h-auto rounded-lg mb-8">
+<div class="flex items-center mb-4 text-gray-600 text-sm">
+<span class="bg-red-100 text-primary text-xs px-3 py-1 rounded-full mr-4">Kursus Mengemudi</span>
+<span>29 Apr 2025</span>
+</div>
+<h1 class="text-3xl font-bold mb-6">Tips Mengemudi Aman untuk Pemula di Jalan Raya</h1>
+<div class="prose max-w-none">
+<p>Bagi pemula, mengemudi di jalan raya bisa menjadi pengalaman yang mendebarkan. Transisi dari latihan di area tertutup ke jalanan yang ramai dengan berbagai jenis kendaraan dan aturan lalu lintas memerlukan persiapan mental dan keterampilan yang matang. Artikel ini akan membahas berbagai tips penting untuk memastikan keselamatan Anda dan pengguna jalan lainnya saat baru belajar mengemudi di jalan raya.</p>
+
+<h2>Persiapan Sebelum Berangkat</h2>
+<p>Sebelum Anda memutar kunci kontak dan melaju ke jalan raya, ada beberapa persiapan krusial yang harus dilakukan:</p>
+<ul>
+<li><strong>Periksa Kondisi Kendaraan:</strong> Pastikan ban terisi angin dengan benar, lampu berfungsi (depan, belakang, sein, rem), rem pakem, cairan penting (oli, air radiator) cukup, dan kaca spion terpasang serta teratur dengan baik.</li>
+<li><strong>Kenali Rute Perjalanan:</strong> Rencanakan rute Anda sebelumnya. Gunakan aplikasi navigasi jika perlu, tetapi jangan terlalu bergantung padanya saat mengemudi. Memiliki gambaran umum rute akan mengurangi kebingungan di jalan.</li>
+<li><strong>Istirahat Cukup:</strong> Jangan mengemudi dalam keadaan lelah atau mengantuk. Konsentrasi penuh sangat dibutuhkan saat berada di jalan raya.</li>
+<li><strong>Atur Posisi Duduk dan Spion:</strong> Pastikan posisi duduk Anda nyaman dan memungkinkan akses mudah ke pedal dan setir. Atur kaca spion tengah dan samping untuk mendapatkan pandangan terbaik ke belakang dan samping kendaraan.</li>
+</ul>
+
+<h2>Saat Berada di Jalan Raya</h2>
+<p>Setelah semua persiapan selesai, saatnya menghadapi jalan raya. Ingatlah tips-tips berikut:</p>
+<ul>
+<li><strong>Tetap Tenang dan Fokus:</strong> Jangan panik jika menghadapi situasi yang tidak terduga. Tarik napas dalam-dalam dan tetap fokus pada mengemudi.</li>
+<li><strong>Patuhi Batas Kecepatan:</strong> Mengemudi terlalu cepat adalah salah satu penyebab utama kecelakaan. Patuhi batas kecepatan yang berlaku dan sesuaikan kecepatan dengan kondisi lalu lintas dan cuaca.</li>
+<li><strong>Jaga Jarak Aman:</strong> Berikan ruang yang cukup antara kendaraan Anda dan kendaraan di depan. Ini memberi Anda waktu reaksi yang lebih baik jika terjadi pengereman mendadak. Aturan umumnya adalah "aturan tiga detik".</li>
+<li><strong>Gunakan Lampu Sein:</strong> Selalu gunakan lampu sein saat akan berbelok atau berpindah jalur. Beri isyarat yang jelas kepada pengemudi lain.</li>
+<li><strong>Perhatikan Sekeliling:</strong> Jangan hanya melihat ke depan. Perhatikan kaca spion secara berkala dan waspadai kendaraan di sekitar Anda, termasuk sepeda motor dan pesepeda.</li>
+<li><strong>Hindari Gangguan:</strong> Jangan menggunakan ponsel atau melakukan aktivitas lain yang mengalihkan perhatian saat mengemudi.</li>
+<li><strong>Hati-hati Saat Berpindah Jalur:</strong> Pastikan area di sekitar Anda aman sebelum berpindah jalur. Gunakan kaca spion dan lakukan pengecekan langsung (blind spot check).</li>
+<li><strong>Waspada di Persimpangan:</strong> Kurangi kecepatan saat mendekati persimpangan. Pastikan aman sebelum melintas, meskipun lampu lalu lintas berwarna hijau.</li>
+<li><strong>Antisipasi Tindakan Pengemudi Lain:</strong> Jangan berasumsi pengemudi lain akan selalu mengikuti aturan. Bersiaplah untuk reaksi yang tidak terduga.</li>
+</ul>
+
+<h2>Menghadapi Situasi Sulit</h2>
+<p>Ada kalanya Anda akan menghadapi situasi sulit di jalan raya. Berikut cara menghadapinya:</p>
+<ul>
+<li><strong>Saat Hujan:</strong> Kurangi kecepatan, nyalakan lampu depan, dan tingkatkan jarak aman. Hati-hati terhadap aquaplaning.</li>
+<li><strong>Saat Malam Hari:</strong> Pastikan lampu depan berfungsi dengan baik. Kurangi kecepatan dan lebih waspada terhadap pejalan kaki atau hewan di jalan.</li>
+<li><strong>Jika Tersesat:</strong> Tetap tenang. Cari tempat yang aman untuk menepi dan periksa peta atau navigasi Anda. Jangan membuat keputusan mendadak di tengah jalan.</li>
+</ul>
+
+<p>Mengemudi aman adalah keterampilan yang terus diasah. Dengan mempraktikkan tips-tips di atas dan selalu mengutamakan keselamatan, Anda akan menjadi pengemudi yang lebih percaya diri dan bertanggung jawab di jalan raya. LPK Nissan Fortuna siap membantu Anda memulai perjalanan mengemudi Anda dengan kursus yang komprehensif dan instruktur yang berpengalaman.</p>
+</div>
+</div>
+</main>
+
+<div class="mt-12 border-t border-gray-200 pt-8">
+    <!-- Share Buttons -->
+    <div class="flex items-center justify-center space-x-4 mb-8">
+        <span class="text-gray-600 font-medium">Bagikan Artikel Ini:</span>
+        <a href="#" class="text-gray-600 hover:text-primary transition duration-300">
+            <i class="ri-facebook-box-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-primary transition duration-300">
+            <i class="ri-twitter-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-primary transition duration-300">
+            <i class="ri-whatsapp-fill text-2xl"></i>
+        </a>
+        <a href="#" class="text-gray-600 hover:text-primary transition duration-300">
+            <i class="ri-linkedin-box-fill text-2xl"></i>
+        </a>
+    </div>
+
+    <!-- Author and Date -->
+    <div class="flex items-center justify-center text-gray-600 text-sm mb-12">
+        <span class="mr-4">Dipublikasikan pada: 29 Apr 2025</span>
+        <span>Oleh: Admin LPK Nissan Fortuna</span>
+    </div>
+
+    <!-- Related Posts -->
+    <div class="py-8 px-4">
+        <h3 class="text-2xl font-bold text-center mb-12">Artikel Terkait</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+            <!-- Related Article 1 -->
+            <div class="bg-white border border-red-100 rounded-lg shadow-sm overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] max-w-xs mx-auto w-full">
+                <img src="readdy_images/professional_driving_lesson_in_2.jpg" alt="Kursus Mengemudi" class="w-full h-40 object-cover">
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Kursus Mengemudi</span>
+                        <span class="text-gray-500 text-xs">29 Apr 2025</span>
+                    </div>
+                    <h4 class="text-base font-bold mb-3 text-gray-800">Tips Mengemudi Aman untuk Pemula di Jalan Raya</h4>
+                    <p class="text-gray-600 text-xs mb-4 line-clamp-2">Bagi pemula, mengemudi di jalan raya bisa menjadi pengalaman yang mendebarkan. Artikel ini membahas berbagai tips penting untuk memastikan...</p>
+                    <a href="#" class="inline-block bg-primary text-white px-3 py-1.5 rounded-button text-xs font-medium hover:bg-red-700 transition duration-300">Baca Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- Related Article 2 -->
+            <div class="bg-white border border-red-100 rounded-lg shadow-sm overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] max-w-xs mx-auto w-full">
+                <img src="readdy_images/modern_computer_lab_in_3.jpg" alt="Komputer & Akuntansi" class="w-full h-40 object-cover">
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Komputer & Akuntansi</span>
+                        <span class="text-gray-500 text-xs">25 Apr 2025</span>
+                    </div>
+                    <h4 class="text-base font-bold mb-3 text-gray-800">Menguasai Software Akuntansi MYOB untuk Pemula</h4>
+                    <p class="text-gray-600 text-xs mb-4 line-clamp-2">MYOB merupakan software akuntansi yang banyak digunakan di perusahaan. Artikel ini membahas langkah-langkah dasar untuk menguasai MYOB...</p>
+                    <a href="#" class="inline-block bg-primary text-white px-3 py-1.5 rounded-button text-xs font-medium hover:bg-red-700 transition duration-300">Baca Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- Related Article 3 -->
+            <div class="bg-white border border-red-100 rounded-lg shadow-sm overflow-hidden transition-transform duration-300 hover:translate-y-[-5px] max-w-xs mx-auto w-full">
+                <img src="readdy_images/automotive_mechanic_workshop_i_4.jpg" alt="Mekanik Otomotif" class="w-full h-40 object-cover">
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Mekanik Otomotif</span>
+                        <span class="text-gray-500 text-xs">20 Apr 2025</span>
+                    </div>
+                    <h4 class="text-base font-bold mb-3 text-gray-800">Cara Mendiagnosis Masalah Mesin Mobil dengan Tepat</h4>
+                    <p class="text-gray-600 text-xs mb-4 line-clamp-2">Mendiagnosis masalah mesin mobil dengan tepat adalah keterampilan penting bagi mekanik. Artikel ini membahas berbagai metoda dan alat untuk...</p>
+                    <a href="#" class="inline-block bg-primary text-white px-3 py-1.5 rounded-button text-xs font-medium hover:bg-red-700 transition duration-300">Baca Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-8 mb-12">
+<!-- About -->
+<div>
+<a href="home.html" class="inline-block mb-6">
+<img src="readdy_images/logo-lnf.png" alt="LPK Nissan Fortuna Logo" class="h-10">
+</a>
+<p class="text-gray-400 mb-6">LPK Nissan Fortuna adalah lembaga pendidikan dan keterampilan terpercaya sejak 1992. Kami berkomitmen untuk memberikan pendidikan berkualitas dengan harga terjangkau.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+<i class="ri-youtube-line"></i>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-xl font-bold mb-6">Tautan Cepat</h3>
+<ul class="space-y-3">
+<li><a href="home.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+<li><a href="home.html#tentang" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+<li><a href="home.html#layanan" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+<li><a href="artikel.html" class="text-gray-400 hover:text-white transition duration-300">Artikel</a></li>
+<li><a href="lokasi.html#kontak" class="text-gray-400 hover:text-white transition duration-300">Hubungi Kami</a></li>
+</ul>
+</div>
+<!-- Layanan -->
+<div>
+<h3 class="text-xl font-bold mb-6">Layanan</h3>
+<ul class="space-y-3">
+<li><a href="kursus_mengemudi.html" class="text-gray-400 hover:text-white transition duration-300">Kursus Mengemudi</a></li>
+<li><a href="kursus_komputer.html" class="text-gray-400 hover:text-white transition duration-300">Kursus Komputer & Akuntansi</a></li>
+<li><a href="kursus_mekanik.html" class="text-gray-400 hover:text-white transition duration-300">Kursus Mekanik Otomotif</a></li>
+<li><a href="kursus_mengemudi.html#content-jadwal" class="text-gray-400 hover:text-white transition duration-300">Jadwal Kursus</a></li>
+<li><a href="kursus_mengemudi.html#content-biaya" class="text-gray-400 hover:text-white transition duration-300">Biaya Kursus</a></li>
+</ul>
+</div>
+<!-- Contact -->
+<div>
+<h3 class="text-xl font-bold mb-6">Kontak</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">Jln HOS Cokroaminoto 81 (Mlatinorowito Gang 8) Kudus, Jawa Tengah</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">Hotline: (0291) 441879</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-printer-line"></i>
+</div>
+<span class="text-gray-400">Fax: (0291) 441879</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-whatsapp-line"></i>
+</div>
+<span class="text-gray-400">Whatsapp: 0856-4070-9809</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">Email: nissanfortunakursus@gmail.com</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center mr-3 mt-1 text-primary">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-gray-400">Senin - Sabtu: 08.00 - 17.00</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 LPK Nissan Fortuna. Hak Cipta Dilindungi.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Kebijakan Privasi</a>
+<a href="#" class="text-gray-400 text-sm hover:text-white transition duration-300">Syarat & Ketentuan</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- WhatsApp Button -->
+<a href="https://wa.me/6281234567890" class="whatsapp-button w-14 h-14 flex items-center justify-center bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition duration-300">
+<i class="ri-whatsapp-line text-white text-2xl"></i>
+</a>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuButton = document.getElementById('mobile-menu-toggle');
+const menuIcon = menuButton.querySelector('i');
+const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    // Change icon back to menu when menu is closed
+    menuIcon.className = 'ri-menu-line text-2xl';
+}
+
+function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    // Change icon to close when menu is opened
+    menuIcon.className = 'ri-close-line text-2xl';
+}
+
+if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', function() {
+        if (mobileMenu.classList.contains('hidden')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+
+    // Close menu when clicking on the overlay (outside the menu)
+    mobileMenuOverlay.addEventListener('click', function(e) {
+        // Only close if clicking directly on the overlay, not on the menu itself
+        if (e.target === mobileMenuOverlay) {
+            closeMenu();
+        }
+    });
+}
+
+// Mobile submenu toggle
+const mobileSubmenuButton = document.querySelector('.py-2 button');
+const mobileSubmenu = document.querySelector('.py-2 .hidden');
+if (mobileSubmenuButton && mobileSubmenu) {
+    mobileSubmenuButton.addEventListener('click', function() {
+        mobileSubmenu.classList.toggle('hidden');
+    });
+}
+});
+</script>
+</body>
+</html>
